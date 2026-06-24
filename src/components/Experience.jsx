@@ -1,7 +1,7 @@
 const JOBS = [
   {
-    company: 'HOTEL RESERVATIONS',
-    role: 'Virtual High-Ticket Sales Closer & Booking Specialist',
+    company: 'Hotel Planner',
+    role: 'VIRTUAL HIGH-TICKET SALES CLOSER & BOOKING SPECIALIST',
     date: 'Sep 2023 – Oct 2025 · Remote, Miami FL, USA',
     kpis: [
       { num: '$121K', label: 'prepaid revenue in 2 weeks' },
@@ -12,8 +12,8 @@ const JOBS = [
     delay: '',
   },
   {
-    company: 'UNITEDHEALTHCARE · OPTUM',
-    role: 'Medical Virtual Assistant · Healthcare Support Specialist',
+    company: 'United Healthcare - Optum Global Solutions',
+    role: 'MEDICAL VIRTUAL ASSISTANT · HEALTHCARE SUPPORT SPECIALIST',
     date: 'Oct 2016 – Feb 2020 · Quezon City, Philippines',
     kpis: [
       { num: '1,000+', label: 'monthly member interactions' },
@@ -24,8 +24,8 @@ const JOBS = [
     delay: 'd1',
   },
   {
-    company: 'HAKUNA MATATA GOWNS',
-    role: 'Founder · Virtual Operations & Social Media Manager',
+    company: 'Hakuna Matata Gowns',
+    role: 'FOUNDER-VIRTUAL OPERATIONS & SOCIAL MEDIA MANAGER',
     date: 'Dec 2016 – Present · Philippines',
     kpis: [
       { num: '200+',   label: 'monthly orders fulfilled' },

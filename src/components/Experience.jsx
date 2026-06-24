@@ -1,6 +1,6 @@
 const JOBS = [
   {
-    company: 'HOTEL PLANNER',
+    company: 'HOTEL RESERVATIONS',
     role: 'Virtual High-Ticket Sales Closer & Booking Specialist',
     date: 'Sep 2023 – Oct 2025 · Remote, Miami FL, USA',
     kpis: [
@@ -49,8 +49,10 @@ export default function Experience() {
         <div className="exp-grid">
           {JOBS.map(job => (
             <div key={job.company} className={`ec rv ${job.delay}`}>
-              <div className="ec-co">{job.company}</div>
-              <div className="ec-role">{job.role}</div>
+              {/* PLACES & COLORS SWAPPED HERE */}
+              <div className="ec-role" style={{ color: 'var(--y)', fontWeight: 'bold' }}>{job.role}</div>
+              <div className="ec-co" style={{ color: '#ffffff', marginTop: '0.25rem' }}>{job.company}</div>
+              
               <div className="ec-date">{job.date}</div>
               <div className="ec-kpi">
                 {job.kpis.map(k => (

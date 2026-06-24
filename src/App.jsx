@@ -3,10 +3,10 @@ import NavBar           from './components/NavBar'
 import Hero             from './components/Hero'
 import StatsBar         from './components/StatsBar'
 import About            from './components/About'
+import ToolsMarquee     from './components/ToolsMarquee' // Moved up to establish authority early
 import Services         from './components/Services'
 import Experience       from './components/Experience'
 import Process          from './components/Process'
-import ToolsMarquee     from './components/ToolsMarquee'
 import PhotoShowcase    from './components/PhotoShowcase'
 import Testimonials     from './components/Testimonials'
 import Booking          from './components/Booking'
@@ -26,11 +26,17 @@ export default function App() {
       <NavBar />
       <Hero />
       <StatsBar />
+      
+      {/* About Section */}
       <About />
+      
+      {/* Tech Stack sits here now — right after they learn who you are */}
+      <ToolsMarquee />
+      
+      {/* Core Services and Funnel Flow Continue */}
       <Services />
       <Experience />
       <Process />
-      <ToolsMarquee />
       <PhotoShowcase />
       <Testimonials />
       <Booking />

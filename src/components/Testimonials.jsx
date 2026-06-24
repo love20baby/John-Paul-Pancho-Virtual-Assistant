@@ -54,7 +54,6 @@ function TestimonialCard({ t }) {
 
 export default function ClientTestimonials() {
   
-  // FAILSAFE SMOOTH SCROLL BACKUP LAYER
   useEffect(() => {
     const handleHashScroll = () => {
       if (window.location.hash === '#testi') {
@@ -74,10 +73,10 @@ export default function ClientTestimonials() {
   }, [])
 
   return (
-    /* FIXED: ID is now 'testi' to sync with your navbar anchors */
     <section id="testi" className="testimonials-section">
       <div className="container">
-        <span className="section-subtitle">Client Feedback</span>
+        {/* FIXED: Added the signature segment dash line prefix */}
+        <span className="section-subtitle">— CLIENT FEEDBACK</span>
         <h2 className="section-title">
           Results Clients <br /> Can't Stop Talking About
         </h2>
@@ -108,8 +107,6 @@ export default function ClientTestimonials() {
           color: #ffffff;
           padding: 6rem 2rem;
           font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-          
-          /* Ensures your fixed navigation bar won't obscure the section title */
           scroll-margin-top: 100px !important; 
         }
 
@@ -125,11 +122,11 @@ export default function ClientTestimonials() {
           font-weight: 700;
           letter-spacing: 0.15em;
           display: block;
-          margin-bottom: 1rem;
+          margin-bottom: 1.5rem;
         }
 
         .section-title {
-          font-size: clamp(2rem, 4vw, 3.5rem);
+          font-size: clamp(2.5rem, 5vw, 4rem);
           line-height: 1.1;
           font-weight: 800;
           text-transform: uppercase;

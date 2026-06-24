@@ -1,12 +1,14 @@
+import React from 'react'
+
 const SERVICES = [
   {
     num: '01',
     title: 'MEDICAL VIRTUAL ASSISTANT',
     desc: 'HIPAA-compliant admin support for healthcare practices: patient scheduling, insurance follow-ups, records management, and multi-channel member support.',
     bullets: [
-      'Strict HIPAA compliance',
-      '18% YoY member retention improvement',
-      '1,000+ monthly interactions managed',
+      'Virtual Front Desk & Practice Administration',
+      'Patient Scheduling & Calendar Optimization',
+      'Secure Electronic Health Records (EHR) Management',
     ],
     delay: '',
   },
@@ -15,9 +17,9 @@ const SERVICES = [
     title: 'CLIENT SUCCESS & REVENUE OPS',
     desc: 'High-ticket sales closing, CRM optimization, pipeline reporting, and retention strategy — I align your operations to grow revenue and retain clients at scale.',
     bullets: [
-      '75% inbound sales conversion rate',
-      '$121K+ revenue generated in 2 weeks',
-      '30% repeat booking growth',
+      'End-to-End Sales Pipeline & Lifecycle Management',
+      'Automated CRM Workflows & Revenue Tracking',
+      'Retention Strategy & Client Churn Mitigation',
     ],
     delay: 'd1',
   },
@@ -26,9 +28,9 @@ const SERVICES = [
     title: 'ECOMMERCE VA',
     desc: 'From Facebook Live selling to TikTok marketing — I manage end-to-end e-commerce operations including order fulfillment, CRM, logistics, and customer engagement.',
     bullets: [
-      '200+ monthly orders managed',
-      '25–30% quarterly revenue growth',
-      'Social media monetization mastery',
+      'Multi-Channel Store & Inventory Logistics',
+      'Live-Selling Strategy & Video Commerce Operations',
+      'Order Fulfillment & Customer Retention Campaigns',
     ],
     delay: 'd2',
   },
@@ -37,9 +39,9 @@ const SERVICES = [
     title: 'CUSTOMER SERVICE VA',
     desc: 'Omnichannel support via phone, email, and chat. I manage high-volume interactions with a human touch and data-backed strategies that build loyalty.',
     bullets: [
-      'High-volume issue resolution (95%+ FCR)',
-      'CRM-backed follow-up systems',
-      'Reduced escalations & churn',
+      'High-Volume Tier-1 & Tier-2 Support Queue Management',
+      'Helpdesk Architecture & CRM-Backed Tracking',
+      'Rapid First-Contact Resolution (FCR) Systems',
     ],
     delay: 'd3',
   },

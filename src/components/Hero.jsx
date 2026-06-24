@@ -32,11 +32,11 @@ export default function Hero() {
       </div>
 
       <div className="hero-r">
-        <img
-          src="/images/hero.jpg"
-          alt="John Paul Pancho"
-          className="hero-photo"
-        />
+        <img 
+  src="/images/hero-profile.png" 
+  alt="John Paul | Revenue Operations & Virtual Support Specialist" 
+  className="hero-img"
+/>
         <div className="flc fc1">
           <strong>12+</strong>
           <span>Years Experience</span>

@@ -39,7 +39,8 @@ export default function NavBar() {
           <div className="logo gold-glow-logo">JP | VA<em>.</em></div>
         </a>
 
-        <ul className="nlinks">
+        {/* GLOW EFFECT APPIED TO DESKTOP LINKS */}
+        <ul className="nlinks glow-links">
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#exp">Experience</a></li>
@@ -54,7 +55,8 @@ export default function NavBar() {
         </button>
       </div>
 
-      <div className="mmenu" ref={mmRef}>
+      {/* GLOW EFFECT APPLIED TO MOBILE MENUS */}
+      <div className="mmenu glow-links" ref={mmRef}>
         <a href="#hero">Home</a>
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -65,7 +67,7 @@ export default function NavBar() {
         </a>
       </div>
 
-      {/* BRAND GOLD AND GLOW HOVER PROPERTIES */}
+      {/* GLOBAL HEADER INTERACTION PROPERTIES */}
       <style jsx global>{`
         .nav-logo-link {
           text-decoration: none;
@@ -73,16 +75,30 @@ export default function NavBar() {
           display: inline-block;
         }
 
-        .gold-glow-logo {
-          color: var(--y, #eaaa08) !important; /* Uses your CSS variable fallback to premium gold */
+        /* Consistent Color Target for Logo & Text Links */
+        .gold-glow-logo,
+        .glow-links a {
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
         }
 
-        .nav-logo-link:hover .gold-glow-logo {
+        .gold-glow-logo {
+          color: var(--y, #eaaa08) !important;
+        }
+
+        /* Hover & Lighting States */
+        .nav-logo-link:hover .gold-glow-logo,
+        .glow-links a:hover {
+          color: var(--y, #eaaa08) !important;
           text-shadow: 0 0 15px rgba(234, 170, 8, 0.65), 
-                       0 0 30px rgba(234, 170, 8, 0.3);
+                       0 0 30px rgba(234, 170, 8, 0.3) !important;
           transform: translateY(-0.5px);
-          opacity: 1;
+          opacity: 1 !important;
+        }
+
+        /* Prevents the mobile primary CTA button from losing its background contrast on hover */
+        .glow-links a.btn-y:hover {
+          text-shadow: none !important;
+          transform: none !important;
         }
       `}</style>
     </nav>

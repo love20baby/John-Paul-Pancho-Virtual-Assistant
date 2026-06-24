@@ -12,10 +12,14 @@ const TOOLS = [
 ]
 
 const REVIEWS = [
-  { author: 'David Sellers', rating: '★★★★★', text: 'Resolved within minutes... ON A WEEKEND! Customer service was so good I signed up monthly' },
-  { author: 'Dr. Ryan', rating: 'Patient Operations', text: 'Getting good feedback on you from my patients who have spoken to you on the phone' },
-  { author: 'Uche Olomina', rating: '★★★★★', text: 'Excellent system optimization and execution' },
-  { author: 'Robert Bailey', rating: '★★★★★', text: 'Superb workflow architecture. Handled our high-volume support queues seamlessly' }
+  { author: 'David Sellers', rating: '★★★★★', text: 'Had a great Customer Service Experience with JOHN, there was a small issue with my order and he RESOLVED it, not the next business day but within minutes... ON A WEEKEND! Customer Service was so good I signed up Monthly.' },
+  { author: 'Tim Beglin', rating: 'Patient Feedback', text: 'Incredibly professional, empathetic, and efficient with handling scheduling.' },
+  { author: 'Dr. Ryan', rating: 'Patient Operations', text: 'Getting good feedback on you from my patients who have spoken to you on the phone.' },
+  { author: 'Jeff Jean-Philippe', rating: 'Patient Feedback', text: 'Always responsive and highly organized. Communication is clear and timely.' },
+  { author: 'Uche Olomina', rating: '★★★★★', text: 'Excellent system optimization and execution.' },
+  { author: 'Maegan Welsh', rating: 'Patient Feedback', text: 'Exceptional support. Handled my inquiries with absolute care and zero stress.' },
+  { author: 'Robert Bailey', rating: '★★★★★', text: 'Superb workflow architecture. Handled our high-volume support queues seamlessly.' },
+  { author: 'Beth Macpherson', rating: 'Patient Feedback', text: 'Reliable, thorough, and outstanding service. The tracking support is top-tier.' }
 ]
 
 export default function ToolsMarquee() {
@@ -25,7 +29,6 @@ export default function ToolsMarquee() {
   return (
     <div className="tools wrap">
       <div className="tools-in">
-        {/* Made this layout text gold, bolder, and more pronounced */}
         <div className="tlbl rv custom-marquee-header">Tech Stack &amp; Operational Performance</div>
       </div>
       
@@ -42,7 +45,7 @@ export default function ToolsMarquee() {
           </div>
         </div>
 
-        {/* TRACK 2: RIGHT RUNNING LIVE METRICS */}
+        {/* TRACK 2: RIGHT RUNNING LIVE METRICS & PATIENT PROOF */}
         <div className="mqwrap-flat row-bottom">
           <div className="mqtrack-flat to-right">
             {reviewTrack.map((rev, i) => (
@@ -57,7 +60,6 @@ export default function ToolsMarquee() {
       </div>
 
       <style jsx global>{`
-        /* Enhanced Gold Section Header Styling */
         .custom-marquee-header {
           color: #eaaa08 !important;
           font-size: 1.15rem !important;
@@ -74,7 +76,7 @@ export default function ToolsMarquee() {
           width: 100%;
           display: flex;
           flex-direction: column;
-          gap: 1.5rem; /* Increased spacing between rows */
+          gap: 1.5rem;
         }
 
         .mqwrap-flat {
@@ -109,10 +111,10 @@ export default function ToolsMarquee() {
           display: inline-flex;
           align-items: center;
           white-space: nowrap;
-          transition: all 0.25s ease;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Tool Pill Variants (Maintained) */
+        /* Tool Pill Variant with Glow Effect */
         .tool-pill {
           gap: 0.65rem;
           background: rgba(20, 20, 20, 0.85);
@@ -127,25 +129,28 @@ export default function ToolsMarquee() {
         .tool-pill:hover {
           border-color: #eaaa08;
           background: rgba(28, 28, 28, 0.95);
+          transform: translateY(-2px);
+          box-shadow: 0 0 20px rgba(234, 170, 8, 0.4);
         }
 
-        /* Thicker, More Premium CSAT Pill Variant Styling */
+        /* CSAT/Review Pill Variant with Glow Effect */
         .csat-pill {
           gap: 0.75rem;
-          background: rgba(234, 170, 8, 0.07); /* Slightly stronger contrast background */
+          background: rgba(234, 170, 8, 0.07);
           border: 1px solid rgba(234, 170, 8, 0.22);
-          padding: 0.85rem 1.6rem; /* Increased padding to make them explicitly thicker */
+          padding: 0.85rem 1.6rem;
           border-radius: 8px;
-          font-size: 0.92rem; /* Slightly larger, clearer font size */
+          font-size: 0.92rem;
           color: #f3f4f6;
-          font-weight: 500; /* Increased overall font thickness */
+          font-weight: 500;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
         }
 
         .csat-pill:hover {
           border-color: #eaaa08;
-          background: rgba(234, 170, 8, 0.12);
-          transform: translateY(-1px);
+          background: rgba(234, 170, 8, 0.15);
+          transform: translateY(-3px);
+          box-shadow: 0 8px 25px rgba(234, 170, 8, 0.35);
         }
 
         .csat-stars {

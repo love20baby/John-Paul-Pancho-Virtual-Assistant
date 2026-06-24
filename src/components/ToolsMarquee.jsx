@@ -14,7 +14,8 @@ const TOOLS = [
 const REVIEWS = [
   { author: 'David Sellers', rating: '★★★★★', text: 'Resolved within minutes... ON A WEEKEND! Customer service was so good I signed up monthly' },
   { author: 'Dr. Ryan', rating: 'Patient Operations', text: 'Getting good feedback on you from my patients who have spoken to you on the phone' },
-  { author: 'Uche Olomina', rating: '★★★★★', text: 'Excellent system optimization and execution' }
+  { author: 'Uche Olomina', rating: '★★★★★', text: 'Excellent system optimization and execution' },
+  { author: 'Robert Bailey', rating: '★★★★★', text: 'Superb workflow architecture. Handled our high-volume support queues seamlessly' }
 ]
 
 export default function ToolsMarquee() {
@@ -69,7 +70,8 @@ export default function ToolsMarquee() {
           overflow: hidden;
           background: rgba(11, 11, 11, 0.4);
           padding: 0.75rem 0;
-          border-y: 1px solid rgba(255, 255, 255, 0.03);
+          border-top: 1px solid rgba(255, 255, 255, 0.03);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.03);
         }
 
         .mqtrack-flat {

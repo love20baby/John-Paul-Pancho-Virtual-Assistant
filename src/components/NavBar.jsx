@@ -34,17 +34,17 @@ export default function NavBar() {
   return (
     <nav id="nav" className="wrap" ref={navRef}>
       <div className="nav-in">
-        <div className="logo">JP<em>.</em></div>
+        <div className="logo">JP | VA<em>.</em></div>
 
         <ul className="nlinks">
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#exp">Experience</a></li>
-          <li><a href="#testi">Reviews</a></li>
+          <li><a href="#testi">Testimonials</a></li>
           <li><a href="#book">Contact</a></li>
         </ul>
 
-        <a href="#book" className="ncta" data-track="nav_book">Book a Call</a>
+        <a href="#book" className="ncta" data-track="nav_book">Book Interview</a>
 
         <button className="brgr" ref={brgrRef} aria-label="Toggle menu">
           <span /><span /><span />

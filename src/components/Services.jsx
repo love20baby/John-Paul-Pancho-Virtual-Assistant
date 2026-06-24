@@ -65,7 +65,8 @@ export default function Services() {
         {SERVICES.map(s => (
           <div key={s.num} className={`sc rv ${s.delay}`}>
             <div className="scn">{s.num}</div>
-            <h3>{s.title}</h3>
+            {/* APPLIED EXACT BRAND GOLD COLOR TO THE TITLES HERE */}
+            <h3 style={{ color: 'var(--y)' }}>{s.title}</h3>
             <p>{s.desc}</p>
             <ul className="oc">
               {s.bullets.map(b => <li key={b}>{b}</li>)}

@@ -30,11 +30,33 @@ export default function Process() {
           </h2>
         </div>
 
-        {/* The parent container now perfectly controls the horizontal timeline axis */}
-        <div className="steps timeline-container">
-          {STEPS.map((s) => (
-            <div key={s.num} className={`step rv ${s.delay}`}>
-              <div className="step-num">{s.num}</div>
+        {/* Using a standard row layout that keeps all columns uniform */}
+        <div className="steps" style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+          {STEPS.map((s, index) => (
+            <div 
+              key={s.num} 
+              className={`step rv ${s.delay}`} 
+              style={{ flex: '1', minWidth: '250px', position: 'relative' }}
+            >
+              {/* This container locks the number and the line onto the exact same vertical center line */}
+              <div style={{ display: 'flex', alignItems: 'center', height: '5rem', marginBottom: '1rem' }}>
+                <div className="step-num" style={{ margin: 0, paddingRight: '1rem' }}>{s.num}</div>
+                
+                {/* The horizontal line is drawn dynamically only between 01-02 and 02-03 */}
+                {index < STEPS.length - 1 && (
+                  <div 
+                    className="desktop-only-line"
+                    style={{
+                      flexGrow: 1,
+                      height: '1px',
+                      background: 'var(--y)',
+                      opacity: 0.3,
+                      alignSelf: 'center'
+                    }}
+                  />
+                )}
+              </div>
+              
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
             </div>
@@ -42,46 +64,11 @@ export default function Process() {
         </div>
       </div>
 
-      {/* This global style override forces absolute alignment across all screens */}
-      <style jsx global>{`
-        @media (min-width: 769px) {
-          .timeline-container {
-            display: flex !important;
-            position: relative;
-            align-items: flex-start; /* Keeps all columns level at the top */
-          }
-          
-          .timeline-container .step {
-            flex: 1;
-            position: relative;
-          }
-
-          /* Single, continuous background line that runs perfectly straight behind the numbers */
-          .timeline-container::before {
-            content: '';
-            position: absolute;
-            top: 2.25rem; /* Exactly the vertical center of the numbers */
-            left: 10%;
-            width: 70%;
-            height: 1px;
-            background: var(--y);
-            opacity: 0.25;
-            z-index: 1;
-          }
-          
-          /* Ensures the numbers sit cleanly on top of the line */
-          .timeline-container .step-num {
-            position: relative;
-            z-index: 3;
-            background: #0b0b0b; /* Matches your dark background to mask the line behind it */
-            display: inline-block;
-            padding-right: 1.5rem;
-          }
-        }
-
+      {/* Standard CSS block to hide the horizontal lines when wrapped on mobile screens */}
+      <style jsx>{`
         @media (max-width: 768px) {
-          .timeline-container::before {
-            display: none;
+          .desktop-only-line {
+            display: none !important;
           }
         }
       `}</style>

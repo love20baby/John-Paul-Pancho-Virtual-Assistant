@@ -12,7 +12,7 @@ export default function Hero() {
         </h1>
 
         <p className="hero-sub">
-          I help healthcare practices, e-commerce brands, and service-based businesses streamline operations, improve customer experience, and support revenue-generating workflows through structured virtual assistance and operational execution.
+          I help Healthcare Practices, E-commerce Brands, and Service-Based Businesses Streamline Operations, Improve Customer Experience, and Support Revenue-Generating Workflows through Structured Virtual Assistance and Operational Execution.
         </p>
 
         <div className="hero-ctas">

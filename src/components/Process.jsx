@@ -37,7 +37,7 @@ export default function Process() {
               className={`step rv ${s.delay}`} 
               style={{ position: 'relative' }}
             >
-              {/* Clean structure returned: No layout-breaking wrapper */}
+              {/* Clean structure restored: No layout-breaking wrapper */}
               <div className="step-num">{s.num}</div>
               <h3>{s.title}</h3>
               <p>{s.desc}</p>

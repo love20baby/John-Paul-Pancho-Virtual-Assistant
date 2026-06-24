@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 
 const TESTIMONIALS = [
   {
@@ -53,9 +53,29 @@ function TestimonialCard({ t }) {
 }
 
 export default function ClientTestimonials() {
+  
+  // FAILSAFE SMOOTH SCROLL BACKUP LAYER
+  useEffect(() => {
+    const handleHashScroll = () => {
+      if (window.location.hash === '#testi') {
+        const element = document.getElementById('testi')
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }
+    }
+
+    if (window.location.hash === '#testi') {
+      setTimeout(handleHashScroll, 100)
+    }
+
+    window.addEventListener('hashchange', handleHashScroll)
+    return () => window.removeEventListener('hashchange', handleHashScroll)
+  }, [])
+
   return (
-    /* FIXED: Added id="testimonials" to anchor the navbar link here */
-    <section id="testimonials" className="testimonials-section">
+    /* FIXED: ID is now 'testi' to sync with your navbar anchors */
+    <section id="testi" className="testimonials-section">
       <div className="container">
         <span className="section-subtitle">Client Feedback</span>
         <h2 className="section-title">
@@ -79,9 +99,8 @@ export default function ClientTestimonials() {
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;1,400;1,500&display=swap');
 
-        /* Added smooth scrolling anchor logic backup */
         html {
-          scroll-behavior: smooth;
+          scroll-behavior: smooth !important;
         }
 
         .testimonials-section {
@@ -89,7 +108,9 @@ export default function ClientTestimonials() {
           color: #ffffff;
           padding: 6rem 2rem;
           font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-          scroll-margin-top: 4rem; /* Keeps navbar from blocking section top */
+          
+          /* Ensures your fixed navigation bar won't obscure the section title */
+          scroll-margin-top: 100px !important; 
         }
 
         .container {

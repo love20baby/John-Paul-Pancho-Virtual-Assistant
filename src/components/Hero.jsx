@@ -25,9 +25,9 @@ export default function Hero() {
         </div>
 
         <div className="htrust">
-          <span className="ht">$121K+ Revenue in 2 Weeks</span>
-          <span className="ht">HIPAA Compliant</span>
-          <span className="ht">Available Full-Time</span>
+          <span className="ht">$121K+ Revenue Performance at HotelPlanner</span>
+          <span className="ht">HIPAA-Compliant Operations Experience</span>
+          <span className="ht">Available for Full-Time & Contract Roles</span>
         </div>
       </div>
 

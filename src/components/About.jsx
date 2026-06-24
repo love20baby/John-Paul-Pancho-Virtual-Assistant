@@ -31,25 +31,24 @@ export default function About() {
   Focused on Building Systems that Improve Efficiency, Strengthen Customer Experience, and support Consistent Revenue Performance—rather than simply completing tasks.
 </p>
 
-          <div className="atags rv d3">
+          <div className="cap-block rv d3">
 
   <div className="cap-label">
     Core Capability Areas
   </div>
 
-  {[
-    'Medical VA (HIPAA-Compliant Operations)',
-    'High-Ticket Sales & Booking Support',
-    'E-commerce Virtual Assistance',
-    'CRM Systems & Workflow Automation',
-    'Customer Success & Client Retention',
-    'Revenue Operations Support',
-    'Social Media Monetization Support',
-    'Omnichannel Customer Support',
-  ].map(tag => <span key={tag}>{tag}</span>)}
+  <div className="atags">
+    <span>Medical VA (HIPAA–Compliant Operations)</span>
+    <span>High-Ticket Sales & Booking Support</span>
+    <span>E-commerce Virtual Assistance</span>
+    <span>CRM Systems & Workflow Automation</span>
+    <span>Customer Success & Client Retention</span>
+    <span>Revenue Operations Support</span>
+    <span>Social Media Monetization Support</span>
+    <span>Omnichannel Customer Support</span>
+  </div>
 
 </div>
-        </div>
       </div>
     </section>
   )

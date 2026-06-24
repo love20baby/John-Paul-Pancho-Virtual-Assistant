@@ -9,35 +9,46 @@ export default function About() {
 
         <div className="atxt">
           <div className="lbl rv">About Me</div>
-          <h2 className="rv d1">Results-Driven. Revenue-Focused. Remote-Ready.</h2>
+          <h2 className="rv d1">OPERATIONAL EXECUTION. REVENUE IMPACT. SYSTEM OPTIMIZATION.</h2>
 
           <p className="rv d2">
-            I'm John Paul Pancho — a Senior Virtual Assistant and Remote Operations
-            Specialist based in Mabalacat City, Pampanga, Philippines, with 12+ years
-            of experience supporting U.S.-based clients across healthcare, finance,
-            telecom, e-commerce, and hospitality.
+            Many businesses Lose Revenue not because of lack of demand, but due to Operational Bottlenecks—Slow Customer Response Times, Inefficient Workflows, Fragmented Systems, and Inconsistent Execution Across Teams.
+
+A 12+ year Remote Operations Specialist supporting U.S.-based Healthcare, Finance, Telecom, E-commerce, and Hospitality Clients through Structured Execution, Customer Experience Optimization, and Revenue-Support Workflows.
+
+Experience includes generating $121,616.93 in Prepaid Revenue within 2 Weeks at HotelPlanner and Managing 1,000+ Monthly Healthcare Interactions at UnitedHealthcare/Optum under strict HIPAA compliance in High-Volume Environments.
+
+Focused on Building Systems that Improve Efficiency, Strengthen Customer Experience, and support Consistent Revenue Performance—rather than simply completing tasks.
           </p>
           <p className="rv d2">
             From generating{' '}
             <strong style={{ color: 'var(--y)' }}>
-              $121,616.93 in prepaid revenue within 2 weeks
+              $121,616.93 in Prepaid Revenue within 2 Weeks
             </strong>{' '}
-            at HotelPlanner to managing 1,000+ monthly healthcare interactions at
-            UnitedHealthcare/Optum with strict HIPAA compliance — I combine strategy,
-            automation, and data-driven execution to deliver measurable impact.
+            at HotelPlanner and Managing 1,000+ Monthly Healthcare Interactions at UnitedHealthcare/Optum under strict HIPAA compliance in High-Volume Environments.
           </p>
           <p className="rv d2">
-            I don't just complete tasks. I build systems, optimize operations, and
-            treat every client's business like it's my own.
+            Focused on Building Systems that Improve Efficiency, Strengthen Customer Experience, and support Consistent Revenue Performance—rather than simply completing tasks.
           </p>
 
           <div className="atags rv d3">
-            {[
-              'Medical VA (HIPAA)', 'High-Ticket Sales', 'Customer Success',
-              'Revenue Operations', 'CRM Automation', 'Social Media Monetization',
-              'Ecommerce VA', 'Omnichannel Support',
-            ].map(tag => <span key={tag}>{tag}</span>)}
-          </div>
+
+  <div className="cap-label">
+    Core Capability Areas
+  </div>
+
+  {[
+    'Medical VA (HIPAA-Compliant Operations)',
+    'High-Ticket Sales & Booking Support',
+    'E-commerce Virtual Assistance',
+    'CRM Systems & Workflow Automation',
+    'Customer Success & Client Retention',
+    'Revenue Operations Support',
+    'Social Media Monetization Support',
+    'Omnichannel Customer Support',
+  ].map(tag => <span key={tag}>{tag}</span>)}
+
+</div>
         </div>
       </div>
     </section>

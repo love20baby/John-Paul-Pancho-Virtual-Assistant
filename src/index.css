@@ -429,3 +429,10 @@ footer {
   .hero-h1 { font-size: 44px; }
   .hero-ctas { flex-direction: column; }
 }
+.cap-label {
+  font-size: 12px;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}

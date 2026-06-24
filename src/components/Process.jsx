@@ -30,44 +30,58 @@ export default function Process() {
           </h2>
         </div>
 
-        <div className="steps" style={{ position: 'relative' }}>
-          {STEPS.map((s, index) => (
-            <div 
-              key={s.num} 
-              className={`step rv ${s.delay}`} 
-              style={{ position: 'relative' }}
-            >
-              {/* Clean structure restored: No layout-breaking wrapper */}
+        {/* The parent container now perfectly controls the horizontal timeline axis */}
+        <div className="steps timeline-container">
+          {STEPS.map((s) => (
+            <div key={s.num} className={`step rv ${s.delay}`}>
               <div className="step-num">{s.num}</div>
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
-
-              {/* Absolute line placement: Bridges the gap perfectly without squeezing text */}
-              {index < STEPS.length - 1 && (
-                <div 
-                  className="step-line desktop-only-line" 
-                  style={{
-                    position: 'absolute',
-                    top: '2.5rem', /* Centers vertically with your 01/02 numbers */
-                    left: '6rem',   /* Starts right after the number */
-                    width: 'calc(100% - 4rem)', /* Reaches over to the next column entry */
-                    height: '1px',
-                    background: 'var(--y)',
-                    opacity: 0.3,
-                    zIndex: 2
-                  }}
-                />
-              )}
             </div>
           ))}
         </div>
       </div>
 
-      {/* Keeps lines clean on desktop, hides them on mobile so columns stack beautifully */}
-      <style jsx>{`
+      {/* This global style override forces absolute alignment across all screens */}
+      <style jsx global>{`
+        @media (min-width: 769px) {
+          .timeline-container {
+            display: flex !important;
+            position: relative;
+            align-items: flex-start; /* Keeps all columns level at the top */
+          }
+          
+          .timeline-container .step {
+            flex: 1;
+            position: relative;
+          }
+
+          /* Single, continuous background line that runs perfectly straight behind the numbers */
+          .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 2.25rem; /* Exactly the vertical center of the numbers */
+            left: 10%;
+            width: 70%;
+            height: 1px;
+            background: var(--y);
+            opacity: 0.25;
+            z-index: 1;
+          }
+          
+          /* Ensures the numbers sit cleanly on top of the line */
+          .timeline-container .step-num {
+            position: relative;
+            z-index: 3;
+            background: #0b0b0b; /* Matches your dark background to mask the line behind it */
+            display: inline-block;
+            padding-right: 1.5rem;
+          }
+        }
+
         @media (max-width: 768px) {
-          .desktop-only-line {
-            display: none !important;
+          .timeline-container::before {
+            display: none;
           }
         }
       `}</style>

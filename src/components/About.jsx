@@ -12,24 +12,24 @@ export default function About() {
           <h2 className="rv d1">OPERATIONAL EXECUTION. REVENUE IMPACT. SYSTEM OPTIMIZATION.</h2>
 
           <p className="rv d2">
-            Many businesses Lose Revenue not because of lack of demand, but due to Operational Bottlenecks—Slow Customer Response Times, Inefficient Workflows, Fragmented Systems, and Inconsistent Execution Across Teams.
+  Many businesses Lose Revenue not because of lack of demand, but due to Operational Bottlenecks—Slow Customer Response Times, Inefficient Workflows, Fragmented Systems, and Inconsistent Execution Across Teams.
+</p>
 
-A 12+ year Remote Operations Specialist supporting U.S.-based Healthcare, Finance, Telecom, E-commerce, and Hospitality Clients through Structured Execution, Customer Experience Optimization, and Revenue-Support Workflows.
+<p className="rv d2">
+  A 12+ year Remote Operations Specialist supporting U.S.-based Healthcare, Finance, Telecom, E-commerce, and Hospitality Clients through Structured Execution, Customer Experience Optimization, and Revenue-Support Workflows.
+</p>
 
-Experience includes generating $121,616.93 in Prepaid Revenue within 2 Weeks at HotelPlanner and Managing 1,000+ Monthly Healthcare Interactions at UnitedHealthcare/Optum under strict HIPAA compliance in High-Volume Environments.
+<p className="rv d2">
+  Experience includes generating{" "}
+  <strong style={{ color: 'var(--y)' }}>
+    $121,616.93 in Prepaid Revenue within 2 Weeks at HotelPlanner
+  </strong>{" "}
+  and Managing 1,000+ Monthly Healthcare Interactions at UnitedHealthcare/Optum under strict HIPAA compliance in High-Volume Environments.
+</p>
 
-Focused on Building Systems that Improve Efficiency, Strengthen Customer Experience, and support Consistent Revenue Performance—rather than simply completing tasks.
-          </p>
-          <p className="rv d2">
-            From generating{' '}
-            <strong style={{ color: 'var(--y)' }}>
-              $121,616.93 in Prepaid Revenue within 2 Weeks
-            </strong>{' '}
-            at HotelPlanner and Managing 1,000+ Monthly Healthcare Interactions at UnitedHealthcare/Optum under strict HIPAA compliance in High-Volume Environments.
-          </p>
-          <p className="rv d2">
-            Focused on Building Systems that Improve Efficiency, Strengthen Customer Experience, and support Consistent Revenue Performance—rather than simply completing tasks.
-          </p>
+<p className="rv d2">
+  Focused on Building Systems that Improve Efficiency, Strengthen Customer Experience, and support Consistent Revenue Performance—rather than simply completing tasks.
+</p>
 
           <div className="atags rv d3">
 

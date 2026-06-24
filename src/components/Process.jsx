@@ -30,33 +30,20 @@ export default function Process() {
           </h2>
         </div>
 
-        {/* Using a standard row layout that keeps all columns uniform */}
-        <div className="steps" style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+        <div className="steps">
           {STEPS.map((s, index) => (
-            <div 
-              key={s.num} 
-              className={`step rv ${s.delay}`} 
-              style={{ flex: '1', minWidth: '250px', position: 'relative' }}
-            >
-              {/* This container locks the number and the line onto the exact same vertical center line */}
-              <div style={{ display: 'flex', alignItems: 'center', height: '5rem', marginBottom: '1rem' }}>
-                <div className="step-num" style={{ margin: 0, paddingRight: '1rem' }}>{s.num}</div>
+            <div key={s.num} className={`step rv ${s.delay}`}>
+              
+              {/* FIXED HOOK: Container explicitly handles side-by-side layout for the number and line */}
+              <div className="num-line-row">
+                <div className="step-num">{s.num}</div>
                 
-                {/* The horizontal line is drawn dynamically only between 01-02 and 02-03 */}
+                {/* Draws the line inline between columns 1-2 and 2-3 only */}
                 {index < STEPS.length - 1 && (
-                  <div 
-                    className="desktop-only-line"
-                    style={{
-                      flexGrow: 1,
-                      height: '1px',
-                      background: 'var(--y)',
-                      opacity: 0.3,
-                      alignSelf: 'center'
-                    }}
-                  />
+                  <div className="step-connect-line" />
                 )}
               </div>
-              
+
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
             </div>
@@ -64,10 +51,42 @@ export default function Process() {
         </div>
       </div>
 
-      {/* Standard CSS block to hide the horizontal lines when wrapped on mobile screens */}
-      <style jsx>{`
+      <style jsx global>{`
+        @media (min-width: 769px) {
+          /* Enforces side-by-side columns at the top level */
+          .steps {
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 2rem !important;
+          }
+          
+          .step {
+            flex: 1 !important;
+          }
+
+          /* Aligns number and line perfectly centered horizontally */
+          .num-line-row {
+            display: flex !important;
+            align-items: center !important;
+            position: relative;
+            width: 100%;
+            margin-bottom: 1.5rem;
+          }
+
+          /* The line dynamically takes up the remaining horizontal space in the column card */
+          .step-connect-line {
+            flex-grow: 1 !important;
+            height: 1px !important;
+            background: var(--y) !important;
+            opacity: 0.25 !important;
+            margin-left: 1.5rem !important;
+            margin-right: -1.5rem !important; /* Safely reaches out across the column gap */
+          }
+        }
+
+        /* Destroys the lines completely on mobile layouts so columns safely stack vertically */
         @media (max-width: 768px) {
-          .desktop-only-line {
+          .step-connect-line {
             display: none !important;
           }
         }

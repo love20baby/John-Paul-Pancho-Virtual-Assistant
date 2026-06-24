@@ -34,7 +34,10 @@ export default function NavBar() {
   return (
     <nav id="nav" className="wrap" ref={navRef}>
       <div className="nav-in">
-        <div className="logo">JP | VA<em>.</em></div>
+        {/* BRAND LOGO ROUTED TO HERO SECTION WITH GOLD GLOW EFFECTS */}
+        <a href="#hero" className="nav-logo-link">
+          <div className="logo gold-glow-logo">JP | VA<em>.</em></div>
+        </a>
 
         <ul className="nlinks">
           <li><a href="#about">About</a></li>
@@ -52,6 +55,7 @@ export default function NavBar() {
       </div>
 
       <div className="mmenu" ref={mmRef}>
+        <a href="#hero">Home</a>
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#exp">Experience</a>
@@ -60,6 +64,27 @@ export default function NavBar() {
           Book Free Discovery Call →
         </a>
       </div>
+
+      {/* BRAND GOLD AND GLOW HOVER PROPERTIES */}
+      <style jsx global>{`
+        .nav-logo-link {
+          text-decoration: none;
+          cursor: pointer;
+          display: inline-block;
+        }
+
+        .gold-glow-logo {
+          color: var(--y, #eaaa08) !important; /* Uses your CSS variable fallback to premium gold */
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+
+        .nav-logo-link:hover .gold-glow-logo {
+          text-shadow: 0 0 15px rgba(234, 170, 8, 0.65), 
+                       0 0 30px rgba(234, 170, 8, 0.3);
+          transform: translateY(-0.5px);
+          opacity: 1;
+        }
+      `}</style>
     </nav>
   )
 }

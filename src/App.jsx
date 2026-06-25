@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import NavBar           from './components/NavBar'
 import Hero              from './components/Hero'
 import StatsBar         from './components/StatsBar'
@@ -273,6 +274,9 @@ export default function App() {
         <Booking />
         <Footer />
       </div>
+      
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   )
 }

@@ -1,9 +1,10 @@
+import { useEffect } from 'react'
 import ParticleCanvas   from './components/ParticleCanvas'
 import NavBar           from './components/NavBar'
 import Hero             from './components/Hero'
 import StatsBar         from './components/StatsBar'
 import About            from './components/About'
-import ToolsMarquee     from './components/ToolsMarquee' // Moved up to establish authority early
+import ToolsMarquee     from './components/ToolsMarquee' 
 import Services         from './components/Services'
 import Experience       from './components/Experience'
 import Process          from './components/Process'
@@ -20,9 +21,29 @@ export default function App() {
   useParallax()
   useCountUp()
 
+  // Track cursor position globally and stream variables into the document element
+  useEffect(() => {
+    const handleGlobalMouseMove = (e) => {
+      document.documentElement.style.setProperty('--global-x', `${e.clientX}px`)
+      document.documentElement.style.setProperty('--global-y', `${e.clientY}px`)
+    }
+
+    window.addEventListener('mousemove', handleGlobalMouseMove, { passive: true })
+    
+    return () => {
+      window.removeEventListener('mousemove', handleGlobalMouseMove)
+    }
+  }, [])
+
   return (
-    <>
+    <div className="app-layout-root" style={{ position: 'relative', width: '100%' }}>
+      {/* Dynamic ambient spotlight layer trailing behind your layout sections */}
+      <div className="global-spotlight" />
+
+      {/* Background Interactive Layer */}
       <ParticleCanvas />
+      
+      {/* Foreground User Interface */}
       <NavBar />
       <Hero />
       <StatsBar />
@@ -41,6 +62,6 @@ export default function App() {
       <Testimonials />
       <Booking />
       <Footer />
-    </>
+    </div>
   )
 }

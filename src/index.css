@@ -536,3 +536,35 @@ body::before {
   background: rgba(240, 201, 59, 0.02) !important;
   box-shadow: 0 0 30px rgba(240, 201, 59, 0.08);
 }
+/* ─── GLOBAL SPOTLIGHT MOUSE TRACKER ──────────────── */
+
+/* 
+   Applies a page-wide flashlight backdrop that follows the mouse cursor.
+   Because z-index: 0 sits natively behind your '.wrap' layout content layers,
+   it casts a subtle, high-end glow without reducing readability.
+*/
+.global-spotlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* Allows click events to drop straight through to links and cards */
+  z-index: 0; 
+  background: radial-gradient(
+    480px circle at var(--global-x, 0px) var(--global-y, 0px),
+    rgba(240, 201, 59, 0.045), /* Maps directly to your brand gold variable at 4.5% opacity */
+    transparent 80%
+  );
+}
+
+/* Ensure all elements illuminate flawlessly above the canvas tracking layer */
+#nav, main, section, footer, .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* Enhances card depth as the spotlight glides beneath them */
+.sc, .ec, .tc, .phq {
+  transition: border-color .3s, background .3s, box-shadow .3s !important;
+}

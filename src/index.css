@@ -40,7 +40,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--ffb
 }
 
 /* ─── UTILITIES ─────────────────────────────────── */
-.wrap { position: relative; z-index: 1; }
+.wrap { position: relative; z-index: 10; }
 
 .lbl {
   font-size: 11px; font-weight: 600; letter-spacing: .18em;
@@ -81,8 +81,15 @@ button { cursor: pointer; border: none; background: none; font-family: var(--ffb
 
 /* ─── NAV ───────────────────────────────────────── */
 #nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  padding-top: var(--st); transition: background .3s, box-shadow .3s;
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  width: 100%;
+  z-index: 9999 !important; /* Force navigation above all backgrounds and spotlights */
+  padding-top: var(--st); 
+  transition: background .3s, box-shadow .3s;
+  will-change: transform, background;
 }
 #nav.on {
   background: rgba(7,7,7,.96); backdrop-filter: blur(16px);
@@ -117,6 +124,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--ffb
   display: none; flex-direction: column;
   background: rgba(7,7,7,.97); border-top: 1px solid var(--bdr);
   padding: 12px 24px max(24px, var(--sb));
+  position: fixed; top: 64px; left: 0; right: 0; z-index: 9998;
 }
 .mmenu.open { display: flex; }
 .mmenu a {
@@ -127,7 +135,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--ffb
 .mmenu .btn-y { margin-top: 16px; width: 100%; justify-content: center; }
 
 /* ─── HERO ──────────────────────────────────────── */
-#hero { display: flex; min-height: 100dvh; padding-top: 64px; position: relative; z-index: 1; }
+#hero { display: flex; min-height: 100dvh; padding-top: 64px; position: relative; z-index: 10; }
 .hero-l {
   flex: 0 0 54%; display: flex; flex-direction: column;
   justify-content: center; padding: 72px 52px 72px 60px;
@@ -154,14 +162,14 @@ button { cursor: pointer; border: none; background: none; font-family: var(--ffb
 .hero-r {
   flex: 0 0 46%; background: #fff; position: relative;
   display: flex; align-items: center; justify-content: center;
-  padding: 40px 32px; z-index: 1;
+  padding: 40px 32px; z-index: 10;
 }
 .hero-photo {
   max-height: calc(100dvh - 64px - 80px); width: auto; max-width: 100%;
   object-fit: contain;
 }
 .flc {
-  position: absolute; z-index: 2;
+  position: absolute; z-index: 12;
   background: var(--black); border: 1px solid var(--bdr); border-radius: 8px; padding: 16px 22px;
 }
 .flc strong {
@@ -175,7 +183,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--ffb
 /* ─── STATS ─────────────────────────────────────── */
 .stats {
   background: rgba(23,23,23,.96); border-top: 1px solid var(--bdr);
-  border-bottom: 1px solid var(--bdr); padding: 36px 0; position: relative; z-index: 1;
+  border-bottom: 1px solid var(--bdr); padding: 36px 0; position: relative; z-index: 10;
 }
 .stats-in {
   max-width: var(--max); margin: 0 auto; padding: 0 36px;
@@ -190,17 +198,17 @@ button { cursor: pointer; border: none; background: none; font-family: var(--ffb
 .sdv { width: 1px; height: 52px; background: var(--bdr); flex-shrink: 0; }
 
 /* ─── ABOUT ─────────────────────────────────────── */
-#about { padding: 120px 0; position: relative; z-index: 1; background: rgba(7,7,7,.9); }
+#about { padding: 120px 0; position: relative; z-index: 10; }
 .about-in {
   max-width: var(--max); margin: 0 auto; padding: 0 36px;
   display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
 }
 .aimg { position: relative; }
-.aimg img { width: 100%; border-radius: 2px; position: relative; z-index: 1; }
+.aimg img { width: 100%; border-radius: 2px; position: relative; z-index: 10; }
 .aaccent {
   position: absolute; bottom: -28px; right: -28px;
   width: 190px; height: 190px; border: 2px solid var(--y);
-  border-radius: 2px; z-index: 0;
+  border-radius: 2px; z-index: 9;
 }
 .atxt h2 {
   font-family: var(--ffd); font-size: clamp(34px,4.5vw,58px);
@@ -216,7 +224,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--ffb
 .atags span:hover { border-color: var(--y); color: var(--y); }
 
 /* ─── SERVICES ──────────────────────────────────── */
-#services { padding: 120px 0; position: relative; z-index: 1; background: rgba(14,14,14,.93); }
+#services { padding: 120px 0; position: relative; z-index: 10; }
 .shdr {
   max-width: var(--max); margin: 0 auto 60px; padding: 0 36px;
   display: flex; align-items: flex-end; justify-content: space-between; gap: 32px;
@@ -248,7 +256,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--ffb
 .scta { max-width: var(--max); margin: 48px auto 0; padding: 0 36px; text-align: center; }
 
 /* ─── EXPERIENCE ────────────────────────────────── */
-#exp { padding: 120px 0; position: relative; z-index: 1; background: rgba(7,7,7,.9); }
+#exp { padding: 120px 0; position: relative; z-index: 10; }
 .exp-in { max-width: var(--max); margin: 0 auto; padding: 0 36px; }
 .exp-hdr { margin-bottom: 64px; }
 .exp-hdr h2 {
@@ -273,7 +281,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--ffb
 .ec p { font-size: 13px; color: var(--gray); font-weight: 300; line-height: 1.7; }
 
 /* ─── PROCESS ───────────────────────────────────── */
-#process { padding: 120px 0; position: relative; z-index: 1; background: rgba(14,14,14,.93); }
+#process { padding: 120px 0; position: relative; z-index: 10; }
 .proc-in { max-width: var(--max); margin: 0 auto; padding: 0 36px; }
 .proc-hdr { margin-bottom: 72px; }
 .proc-hdr h2 { font-family: var(--ffd); font-size: clamp(36px,5vw,66px); letter-spacing: .02em; line-height: .95; }
@@ -291,7 +299,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--ffb
 
 /* ─── TOOLS / MARQUEE ───────────────────────────── */
 .tools {
-  padding: 80px 0; position: relative; z-index: 1;
+  padding: 80px 0; position: relative; z-index: 10;
   background: rgba(23,23,23,.95);
   border-top: 1px solid var(--bdr); border-bottom: 1px solid var(--bdr);
 }
@@ -321,7 +329,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--ffb
 .mpill:hover { border-color: var(--y); color: var(--white); }
 
 /* ─── PHOTO SHOWCASE ────────────────────────────── */
-.photos { padding: 100px 0; position: relative; z-index: 1; background: rgba(7,7,7,.88); overflow: hidden; }
+.photos { padding: 100px 0; position: relative; z-index: 10; overflow: hidden; }
 .ph-in {
   max-width: var(--max); margin: 0 auto; padding: 0 36px;
   display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; align-items: center;
@@ -337,7 +345,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--ffb
 }
 
 /* ─── TESTIMONIALS ──────────────────────────────── */
-#testi { padding: 120px 0; position: relative; z-index: 1; background: rgba(14,14,14,.93); }
+#testi { padding: 120px 0; position: relative; z-index: 10; }
 .th { max-width: var(--max); margin: 0 auto 64px; padding: 0 36px; }
 .th h2 { font-family: var(--ffd); font-size: clamp(36px,5vw,66px); letter-spacing: .02em; }
 .tgrid {
@@ -354,7 +362,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--ffb
 .tcta p { font-size: 15px; color: var(--gray); margin-bottom: 20px; }
 
 /* ─── BOOKING ───────────────────────────────────── */
-#book { padding: 120px 0; position: relative; z-index: 1; background: rgba(7,7,7,.9); }
+#book { padding: 120px 0; position: relative; z-index: 10; }
 .book-in {
   max-width: var(--max); margin: 0 auto; padding: 0 36px;
   display: grid; grid-template-columns: 1fr 1.15fr; gap: 80px; align-items: start;
@@ -373,7 +381,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--ffb
 /* ─── FOOTER ────────────────────────────────────── */
 footer {
   background: rgba(14,14,14,.97); border-top: 1px solid var(--bdr);
-  padding: 52px 0 max(24px, var(--sb)); position: relative; z-index: 1;
+  padding: 52px 0 max(24px, var(--sb)); position: relative; z-index: 10;
 }
 .fin {
   max-width: var(--max); margin: 0 auto; padding: 0 36px;
@@ -446,15 +454,13 @@ footer {
   background: rgba(240, 201, 59, 0.06);
   border: 1px solid var(--bdr);
   padding: 6px 12px;
-  margin-bottom: 0; /* IMPORTANT: removes extra gap */
+  margin-bottom: 0;
 }
 
 .atags {
-  margin-top: 0; /* IMPORTANT */
+  margin-top: 0;
 }
-/* ... leave all your old styles above untouched ... */
 
-/* Add these at the bottom for the new structured layout */
 .cap-pillars-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -484,20 +490,17 @@ footer {
 }
 /* ─── FUTURISTIC ALIGNED BACKGROUND MECHANICS ─── */
 
-/* 1. Ensure all sections breathe with transparent backgrounds */
 #about, #services, #exp, #process, #testi, #book, .photos {
   background: transparent !important;
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 
-/* 2. Setup a static, ultra-premium deep canvas */
 html, body {
-  background: #040404 !important; /* Pure uniform deep contrast */
+  background: #040404 !important;
   min-height: 100vh;
 }
 
-/* 3. Lock down a singular, glowing tech grid that NEVER cuts off or splits */
 body::before {
   content: '';
   position: fixed;
@@ -505,22 +508,19 @@ body::before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;
+  z-index: 1; /* Keep base grid directly above canvas background layer */
   pointer-events: none;
   
-  /* Fine-tuned dark cyber grid mesh */
   background-image: 
     linear-gradient(rgba(240, 201, 59, 0.012) 1px, transparent 1px),
     linear-gradient(90deg, rgba(240, 201, 59, 0.012) 1px, transparent 1px);
   background-size: 50px 50px;
   background-position: center center;
   
-  /* Concentrated vignette: Center glows bright, edges blend seamlessly to pure black */
   -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 85%);
   mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 85%);
 }
 
-/* 4. Smooth out the content cards so they stand out elegantly over the grid */
 .sc, .ec, .tc, .phq {
   background: rgba(12, 12, 12, 0.75) !important;
   backdrop-filter: blur(16px);
@@ -530,38 +530,46 @@ body::before {
   border-radius: 4px;
 }
 
-/* 5. Clean interactive hover states */
 .sc:hover, .ec:hover, .tc:hover {
   border-color: var(--y) !important;
   background: rgba(240, 201, 59, 0.02) !important;
   box-shadow: 0 0 30px rgba(240, 201, 59, 0.08);
 }
-/* ─── GLOBAL SPOTLIGHT MOUSE TRACKER ──────────────── */
 
-/* 
-   Applies a page-wide flashlight backdrop that follows the mouse cursor.
-   Because z-index: 0 sits natively behind your '.wrap' layout content layers,
-   it casts a subtle, high-end glow without reducing readability.
-*/
+/* ─── GLOBAL SPOTLIGHT MOUSE TRACKER ──────────────── */
 .global-spotlight {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  pointer-events: none; /* Allows click events to drop straight through to links and cards */
-  z-index: 0; 
+  pointer-events: none;
+  z-index: 2; /* Elevated layer index sequence right over the base background grid layer mesh */
+  
+  /* DESKTOP VIEWPORT: Expanded radius for maximum premium visibility */
   background: radial-gradient(
-    480px circle at var(--global-x, 0px) var(--global-y, 0px),
-    rgba(240, 201, 59, 0.045), /* Maps directly to your brand gold variable at 4.5% opacity */
+    650px circle at var(--global-x, 0px) var(--global-y, 0px),
+    rgba(240, 201, 59, 0.055), /* Boosted opacity to 5.5% for distinct clarity */
     transparent 80%
   );
 }
 
+/* MOBILE DISPLAY OPTIMIZATION BREAKPOINT */
+@media (max-width: 768px) {
+  .global-spotlight {
+    /* MOBILE VIEWPORT: Scaled down radius to prevent glare and maintain content readability */
+    background: radial-gradient(
+      320px circle at var(--global-x, 0px) var(--global-y, 0px),
+      rgba(240, 201, 59, 0.065), /* Slightly higher opacity on mobile since the circle area is smaller */
+      transparent 80%
+    );
+  }
+}
+
 /* Ensure all elements illuminate flawlessly above the canvas tracking layer */
-#nav, main, section, footer, .wrap {
+main, section, footer, .wrap, .stats, .tools, .photos {
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 
 /* Enhances card depth as the spotlight glides beneath them */

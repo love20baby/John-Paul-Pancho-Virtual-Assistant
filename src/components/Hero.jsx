@@ -8,7 +8,7 @@ export default function Hero() {
 
         <h1 className="hero-h1">
           OPERATIONAL SUPPORT.
-<span className="hl">REVENUE IMPACT. CLIENT RETENTION.</span>
+          <span className="hl">REVENUE IMPACT. CLIENT RETENTION.</span>
         </h1>
 
         <p className="hero-sub">
@@ -23,28 +23,16 @@ export default function Hero() {
             View Capabilities
           </a>
         </div>
-
-        <div className="htrust">
-          <span className="ht">$121K+ Revenue Performance at HotelPlanner</span>
-          <span className="ht">HIPAA-Compliant Operations Experience</span>
-          <span className="ht">Available for Full-Time & Contract Roles</span>
-        </div>
+        {/* htrust div removed to reduce redundancy */}
       </div>
 
       <div className="hero-r">
         <img 
-  src="/images/hero-profile.png" 
-  alt="John Paul | Revenue Operations & Virtual Support Specialist" 
-  className="hero-img"
-/>
-        <div className="flc fc1">
-          <strong>12+</strong>
-          <span>Years Experience</span>
-        </div>
-        <div className="flc fc2">
-          <strong>$121K</strong>
-          <span>Revenue in 2 Weeks</span>
-        </div>
+          src="/images/hero-profile.png" 
+          alt="John Paul | Revenue Operations & Virtual Support Specialist" 
+          className="hero-img"
+        />
+        {/* flc boxes removed to reduce redundancy */}
       </div>
     </section>
   )

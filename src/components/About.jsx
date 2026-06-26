@@ -5,8 +5,7 @@ export default function About() {
 
         <div className="aimg rv">
           <img src="/images/laptop1.png" alt="John Paul Pancho working" />
-          <div className="aaccent" />
-        </div>
+         </div>
 
         <div className="atxt">
           <div className="lbl rv">About Me</div>

@@ -121,11 +121,12 @@ body {
 }
 
 /* FIXED: HORIZONTAL STATS BAR SYSTEM WITH COMPONENTS & DIVIDERS */
+/* FIXED: FORCE HORIZONTAL ALIGNMENT OVERRIDING GLOBAL WRAP RULES */
 .stats-grid {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
   width: 100%;
   background: rgba(15, 15, 15, 0.4);
   border: 1px solid var(--bdr);
@@ -135,11 +136,11 @@ body {
 }
 
 .stat-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  flex: 1;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  flex: 1 !important;
 }
 
 .stat-number {
@@ -159,6 +160,29 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   white-space: nowrap; 
+}
+
+/* Fixed line orientation for horizontal dividers */
+.sdv {
+  width: 1px !important;
+  height: 50px !important;
+  background: var(--bdr) !important;
+  display: block !important;
+}
+
+/* Mobile Responsive Overrides */
+@media (max-width: 768px) {
+  .stats-grid {
+    flex-direction: column !important;
+    gap: 32px !important;
+    padding: 40px 20px;
+  }
+  .sdv {
+    display: none !important; 
+  }
+  .stat-label {
+    white-space: normal;
+  }
 }
 
 /* Structural Divider Element */

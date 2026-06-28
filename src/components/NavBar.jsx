@@ -64,7 +64,7 @@ export default function NavBar() {
         <a href="#exp">Experience</a>
         <a href="#testi">Testimonials</a>
         <a href="#book" className="btn-y" data-track="mob_nav_book">
-          Book Interview → View Capabilities
+          Book Interview → 
         </a>
       </div>
     </nav>

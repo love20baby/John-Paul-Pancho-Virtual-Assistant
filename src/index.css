@@ -120,19 +120,33 @@ body {
   background: var(--ybg);
 }
 
-/* FIXED: HORIZONTAL STATS BAR SYSTEM WITH COMPONENTS & DIVIDERS */
-/* FIXED: FORCE HORIZONTAL ALIGNMENT OVERRIDING GLOBAL WRAP RULES */
+/* FIXED: FULL-BLEED SCREEN WIDE STATS BAR DIVIDER (BREAKS OUT OF WRAP CONSTRAINTS) */
+.stats-section-divider {
+  width: 100vw !important;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: rgba(15, 15, 15, 0.4);
+  border-top: 1px solid var(--bdr);
+  border-bottom: 1px solid var(--bdr);
+  padding: 40px 0;
+  margin-top: 40px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
 .stats-grid {
   display: flex !important;
   flex-direction: row !important;
   justify-content: space-between !important;
   align-items: center !important;
   width: 100%;
-  background: rgba(15, 15, 15, 0.4);
-  border: 1px solid var(--bdr);
-  padding: 30px 40px;
+  max-width: var(--max);
+  padding: 0 40px;
   gap: 24px;
-  margin-top: 40px;
 }
 
 .stat-box {
@@ -168,28 +182,6 @@ body {
   height: 50px !important;
   background: var(--bdr) !important;
   display: block !important;
-}
-
-/* Mobile Responsive Overrides */
-@media (max-width: 768px) {
-  .stats-grid {
-    flex-direction: column !important;
-    gap: 32px !important;
-    padding: 40px 20px;
-  }
-  .sdv {
-    display: none !important; 
-  }
-  .stat-label {
-    white-space: normal;
-  }
-}
-
-/* Structural Divider Element */
-.sdv {
-  width: 1px;
-  height: 50px;
-  background: var(--bdr);
 }
 
 /* FIXED: CAREER HIGHLIGHTS SECTION - 3 DISTINGUISHED GOLD HOVER CARDS */
@@ -529,7 +521,7 @@ a:hover {
 /* ─── RESPONSIVE BREAKPOINTS ─────────────────────── */
 @media (max-width: 992px) {
   .stats-grid {
-    padding: 30px 20px;
+    padding: 0 20px;
     gap: 16px;
   }
   .stat-number {
@@ -553,11 +545,14 @@ a:hover {
   #about .split-grid > *:first-child { order: 2; } 
   #about .split-grid > *:last-child { order: 1; }
   
-  /* FIXED: Smooth mobile adaptation for the horizontal stats bar layout */
+  /* FIXED: Smooth mobile adaptation for the horizontal full-bleed breakout layout */
+  .stats-section-divider {
+    padding: 40px 0;
+  }
   .stats-grid {
     flex-direction: column !important;
-    gap: 32px;
-    padding: 40px 20px;
+    gap: 32px !important;
+    padding: 0 20px;
   }
   .sdv {
     display: none !important; 

@@ -5,7 +5,6 @@ import Hero             from './components/Hero'
 import StatsBar         from './components/StatsBar'
 import About            from './components/About'
 import ToolsMarquee     from './components/ToolsMarquee' 
-import PerformanceGrid  from './components/PerformanceGrid'
 import Services         from './components/Services'
 import Experience       from './components/Experience'
 import Process          from './components/Process'
@@ -50,7 +49,6 @@ export default function App() {
         <StatsBar />
         <About />
         <ToolsMarquee />
-        <PerformanceGrid />
         <Services />
         <Experience />
         <Process />

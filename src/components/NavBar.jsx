@@ -32,32 +32,39 @@ export default function NavBar() {
   }, [])
 
   return (
-    <nav id="nav" className="wrap" ref={navRef}>
+    // REMOVED the broken .wrap class to stop layout distortion from image_409e61.png
+    <nav id="nav" className="nav-master-container" ref={navRef}>
       <div className="nav-in">
-        <div className="logo">JP<em>.</em></div>
+        {/* Brand Text Identity Signature with Gold Accent Segment */}
+        <div className="logo-brand">
+          JP <span className="gold-pipe">|</span> VA
+        </div>
 
         <ul className="nlinks">
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#exp">Experience</a></li>
-          <li><a href="#testi">Reviews</a></li>
+          <li><a href="#testi">Testimonials</a></li>
           <li><a href="#book">Contact</a></li>
         </ul>
 
-        <a href="#book" className="ncta" data-track="nav_book">Book a Call</a>
+        <a href="#book" className="ncta" data-track="nav_book">
+          Book Interview →
+        </a>
 
         <button className="brgr" ref={brgrRef} aria-label="Toggle menu">
           <span /><span /><span />
         </button>
       </div>
 
+      {/* Mobile Pop-out Panel Menu */}
       <div className="mmenu" ref={mmRef}>
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#exp">Experience</a>
-        <a href="#testi">Reviews</a>
+        <a href="#testi">Testimonials</a>
         <a href="#book" className="btn-y" data-track="mob_nav_book">
-          Book Free Discovery Call →
+          Book Interview → View Capabilities
         </a>
       </div>
     </nav>

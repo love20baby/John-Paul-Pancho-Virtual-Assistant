@@ -2,100 +2,38 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --black:   #070707;
-  --dark:    #0f0f0f;
-  --surf:    #171717;
-  --bdr:     #252525;
-  --y:       #F0C93B;
-  --yd:      #D4A920;
-  --ybg:     rgba(240,201,59,.09);
-  --white:   #F9F7F2;
-  --gray:    #787878;
-  --light:   #C8C4BA;
-
-  /* --- UPDATED PREMIUM FONT STACKS --- */
-  --ffd: 'Playfair Display', serif;   /* Headings */
-  --ffb: 'Inter', sans-serif;         /* Body and UI */
-  
+  --black: #070707;
+  --white: #F9F7F2;
+  --y: #F0C93B;
+  --yd: #D4A920;
+  --bdr: #252525;
+  --ffd: 'Playfair Display', serif;
+  --ffb: 'Inter', sans-serif;
   --max: 1280px;
-  --st: env(safe-area-inset-top, 0px);
-  --sb: env(safe-area-inset-bottom, 0px);
 }
-
-html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   background: var(--black);
   color: var(--white);
-  font-family: var(--ffb); /* Using DM Sans for premium body readability */
+  font-family: var(--ffb);
   font-size: 16px;
   line-height: 1.7;
-  overflow-x: hidden;
-  min-height: 100dvh;
 }
 
-img { max-width: 100%; display: block; }
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
-button { cursor: pointer; border: none; background: none; font-family: var(--ffb); }
+/* ─── CENTERING FOUNDATION ──────────────────────── */
+.app-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
+
+.wrap { 
+  width: 100%; max-width: var(--max); margin: 0 auto; 
+  display: flex; flex-direction: column; align-items: center; 
+}
+
+/* ─── TYPOGRAPHY ────────────────────────────────── */
+h1, h2, h3, .logo { font-family: var(--ffd); }
+button, .btn-y, .btn-o { font-family: var(--ffb); }
 
 /* ─── CANVAS BG ─────────────────────────────────── */
 #bgCanvas {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  z-index: 0; pointer-events: none;
+  z-index: 0; pointer-events: auto; cursor: crosshair;
 }
-
-/* ─── UTILITIES ─────────────────────────────────── */
-.wrap { position: relative; z-index: 1; }
-
-.lbl {
-  font-size: 11px; font-weight: 600; letter-spacing: .18em;
-  text-transform: uppercase; color: var(--y); margin-bottom: 12px;
-  display: flex; align-items: center; gap: 10px;
-}
-.lbl::before { content: ''; width: 26px; height: 1.5px; background: var(--y); }
-
-.btn-y {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--y); color: var(--black);
-  font-size: 13px; font-weight: 600; letter-spacing: .04em;
-  padding: 14px 28px; min-height: 48px; border-radius: 2px;
-  transition: background .2s, transform .15s; white-space: nowrap;
-}
-.btn-y:hover { background: var(--yd); transform: translateY(-1px); }
-
-.btn-o {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: transparent; color: var(--white);
-  font-size: 13px; font-weight: 400;
-  padding: 14px 24px; min-height: 48px;
-  border: 1px solid rgba(255,255,255,.18); border-radius: 2px;
-  transition: border-color .2s, color .2s; white-space: nowrap;
-}
-.btn-o:hover { border-color: var(--y); color: var(--y); }
-
-/* Scroll reveal */
-.rv { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
-.rv.in { opacity: 1; transform: none; }
-.rv.d1 { transition-delay: .1s; }
-.rv.d2 { transition-delay: .2s; }
-.rv.d3 { transition-delay: .3s; }
-.rv.d4 { transition-delay: .4s; }
-
-/* ─── NAV ───────────────────────────────────────── */
-#nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  padding-top: var(--st); transition: background .3s, box-shadow .3s;
-}
-#nav.on {
-  background: rgba(7,7,7,.96); backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px); box-shadow: 0 1px 0 var(--bdr);
-}
-.nav-in {
-  display: flex; align-items: center; justify-content: space-between;
-  height: 64px; padding: 0 36px; max-width: var(--max); margin: 0 auto;
-}
-.logo { font-family: var(--ffd); font-size: 30px; letter-spacing: .06em; }
-.logo em { color: var(--y); font-style: normal; }
-
-/* [Remaining sections maintained as provided] */

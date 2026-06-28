@@ -35,7 +35,7 @@ export default function Hero() {
       <div className="hero-r">
         <div className="hero-image-wrapper">
           <img
-            src="/images/hero-profile.jpg"
+            src="/images/hero-profile.png"
             alt="John Paul Pancho"
             className="hero-photo"
           />

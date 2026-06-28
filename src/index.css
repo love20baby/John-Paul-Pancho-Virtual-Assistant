@@ -12,15 +12,14 @@
   --white:   #F9F7F2;
   --gray:    #787878;
   --light:   #C8C4BA;
+
+  /* --- UPDATED PREMIUM FONT STACKS --- */
+  --ffd: 'Playfair Display', serif;   /* Headings */
+  --ffb: 'Inter', sans-serif;         /* Body and UI */
   
-  /* Finalized Font Stacks */
-  --ffd:     'Bebas Neue', sans-serif;
-  --ffs:     'Cormorant Garamond', serif;
-  --ffb:     'DM Sans', sans-serif;
-  
-  --max:     1280px;
-  --st:      env(safe-area-inset-top, 0px);
-  --sb:      env(safe-area-inset-bottom, 0px);
+  --max: 1280px;
+  --st: env(safe-area-inset-top, 0px);
+  --sb: env(safe-area-inset-bottom, 0px);
 }
 
 html { scroll-behavior: smooth; overflow-x: hidden; }

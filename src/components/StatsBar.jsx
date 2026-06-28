@@ -18,7 +18,6 @@ export default function StatsBar() {
 
       const timer = setInterval(() => {
         frame++;
-        // Smooth easing out execution
         const progress = frame / totalFrames;
         const easeOutQuad = progress * (2 - progress);
         const currentValue = Math.round(easeOutQuad * target);
@@ -32,7 +31,6 @@ export default function StatsBar() {
       }, frameRate);
     };
 
-    // Intersection Observer to trigger execution exactly when scrolled into view
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -60,6 +58,9 @@ export default function StatsBar() {
           <div className="stat-label">Years Experience</div>
         </div>
         
+        {/* FIRST VERTICAL DIVIDER */}
+        <div className="sdv" />
+        
         <div className="stat-box">
           <div className="stat-number">
             $<span className="cnt" data-to="121">0</span>K+
@@ -67,12 +68,18 @@ export default function StatsBar() {
           <div className="stat-label">Revenue in 2 Weeks</div>
         </div>
         
+        {/* SECOND VERTICAL DIVIDER */}
+        <div className="sdv" />
+        
         <div className="stat-box">
           <div className="stat-number">
             <span className="cnt" data-to="1000">0</span>+
           </div>
           <div className="stat-label">Monthly Interactions</div>
         </div>
+        
+        {/* THIRD VERTICAL DIVIDER */}
+        <div className="sdv" />
         
         <div className="stat-box">
           <div className="stat-number">

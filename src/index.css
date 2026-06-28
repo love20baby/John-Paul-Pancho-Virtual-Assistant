@@ -66,7 +66,8 @@ body {
 
 /* ─── SUB-COMPONENT STRETCH & ALIGN FIXES ────────── */
 /* Forces nested components inside <main className="wrap"> to sit properly on center grid lines */
-.wrap > *, main > *, section {
+/* NOTE: Added :not(#nav) rule to safely exclude the Navbar from global column alignment shattering */
+.wrap > *:not(#nav), main > *, section {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -186,7 +187,149 @@ a:hover {
   color: var(--y);
 }
 
-/* ─── ZOOM-PROOF HERO WIREFRAME LAYOUT ──────────── */
+/* ─── FIXED EXECUTIVE NAVBAR SYSTEM (NEW & STABILIZED) ─── */
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block !important; /* Overrides global component column resets */
+}
+
+/* Scroll state styling hook */
+#nav.on {
+  background: rgba(7, 7, 7, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--bdr);
+}
+
+/* Row alignment constraint setup */
+.nav-in {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 24px;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand Text Signature Style with Gold Accent Pipe */
+.logo-brand {
+  font-family: var(--ffd);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  color: var(--white);
+  user-select: none;
+  white-space: nowrap;
+}
+.logo-brand .gold-pipe {
+  color: var(--y);
+  margin: 0 5px;
+  text-shadow: 0 0 8px rgba(240, 201, 59, 0.4);
+}
+
+/* Desktop Horizontal Navigation Menus */
+.nlinks {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nlinks a {
+  font-family: var(--ffb);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--white);
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.nlinks a:hover {
+  color: var(--y) !important;
+  text-shadow: 0 0 10px rgba(240, 201, 59, 0.3);
+}
+
+/* Desktop Outlined Action CTA Button */
+.ncta {
+  font-family: var(--ffb);
+  background: transparent;
+  color: var(--white);
+  border: 1px solid var(--bdr);
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.ncta:hover {
+  background: var(--y) !important;
+  color: var(--black) !important;
+  border-color: var(--y);
+  box-shadow: 0 0 15px var(--y);
+}
+
+/* Mobile Hamburger Menu Layout Bars */
+.brgr {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent !important;
+  border: none;
+  padding: 0 !important;
+  cursor: pointer;
+  z-index: 1000;
+}
+.brgr:hover { box-shadow: none !important; }
+.brgr span {
+  width: 100%;
+  height: 2px;
+  background: var(--white);
+  transition: all 0.3s ease;
+}
+
+/* Morph transformations on menu expand */
+.brgr.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); background: var(--y); }
+.brgr.open span:nth-child(2) { opacity: 0; }
+.brgr.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background: var(--y); }
+
+/* Full Screen Mobile Panel Drawer Overlay Layout */
+.mmenu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background: rgba(7, 7, 7, 0.98);
+  backdrop-filter: blur(20px);
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 998;
+}
+.mmenu.open { right: 0; }
+.mmenu a { font-size: 22px; font-family: var(--ffd); color: var(--white); }
+.mmenu a:hover { color: var(--y); }
+
+/* ─── MOBILE NAVBAR COMPACTING CONTROLS ─────────── */
+@media (max-width: 768px) {
+  .nlinks, .ncta { display: none !important; }
+  .brgr { display: flex !important; }
+  .nav-in { padding: 20px 24px; }
+}
+
+/* ─── ZOOM-PROOF HERO WIREFRAME LAYOUT (UNTOUCHED) ─── */
 #hero.hero-grid-container, #hero {
   display: grid !important;
   grid-template-columns: minmax(320px, 1.2fr) minmax(300px, 0.8fr); /* Rigid safety bounds for browser zoom scales */
@@ -335,7 +478,7 @@ a:hover {
   right: -35px; 
 }
 
-/* ─── RESPONSIVE BREAKPOINTS ────────────────────── */
+/* ─── RESPONSIVE BREAKPOINTS (UNTOUCHED) ─────────── */
 @media (max-width: 992px) {
   .fc1 { left: -15px; }
   .fc2 { right: -15px; }
@@ -382,7 +525,7 @@ a:hover {
     grid-template-columns: 1fr; 
   }
   
-  .wrap > *, main > *, section { 
+  .wrap > *:not(#nav), main > *, section { 
     margin-bottom: 60px; 
   }
   

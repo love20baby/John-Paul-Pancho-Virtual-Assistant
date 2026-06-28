@@ -1,14 +1,23 @@
-/* ─── RESET & VARS ─────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ─── RESET & SYSTEM CORE ──────────────────────── */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
 
 :root {
+  /* Premium Executive Color Palette */
   --black: #070707;
   --white: #F9F7F2;
-  --y: #F0C93B;
-  --yd: #D4A920;
-  --bdr: #252525;
-  --ffd: 'Playfair Display', serif;
-  --ffb: 'Inter', sans-serif;
+  --y: #F0C93B;       /* Vibrant Gold */
+  --yd: #D4A920;      /* Darker Gold */
+  --ybg: rgba(240, 201, 59, 0.08); /* Transparent Gold Glow */
+  --bdr: #252525;      /* Subtle Dark Border */
+  --gray: #787878;
+  
+  /* Typography Stacks */
+  --ffd: 'Playfair Display', serif;   /* Headings */
+  --ffb: 'Inter', sans-serif;         /* Body and UI Elements */
   --max: 1280px;
 }
 
@@ -22,19 +31,19 @@ body {
   width: 100%;
 }
 
-/* ─── CANVAS BG ─────────────────────────────────── */
+/* ─── 3D INTERACTIVE CANVAS BACKGROUND ──────────── */
 #bgCanvas {
   position: fixed; 
   top: 0; 
   left: 0; 
   width: 100vw; 
   height: 100vh;
-  z-index: -1; /* CRITICAL: Pushes the gold interactive lines safely behind content */
+  z-index: -1; /* Keeps the interactive gold particle stream strictly in the background */
   pointer-events: auto; 
-  cursor: crosshair;
+  cursor: crosshair; /* Changes cursor to a sleek precision look over the canvas */
 }
 
-/* ─── CENTERING FOUNDATION (WEBSITE & MOBILE) ───── */
+/* ─── WIREFRAME LAYOUT & CENTERING FOUNDATION ───── */
 .app-container { 
   display: flex; 
   flex-direction: column; 
@@ -42,41 +51,30 @@ body {
   width: 100%;
   min-height: 100vh;
   position: relative;
-  z-index: 1; /* Sits cleanly on top of the fixed background */
+  z-index: 1; /* Sits cleanly on top of the fixed background particles */
 }
 
 .wrap { 
   width: 100%; 
   max-width: var(--max); 
   margin: 0 auto; 
-  padding: 0 24px; /* Adds safe gutters for mobile viewports */
+  padding: 0 24px; /* Mobile safety gutters */
   display: flex; 
   flex-direction: column; 
   align-items: center; 
 }
 
-/* ─── COMPONENT BREAKOUT FIXES ────────────────── */
-section, header, footer, .hero-section {
+/* Global Content Section Block Alignment */
+section, header, footer {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center; /* Forces headings, paragraphs, and buttons to center */
-  margin-bottom: 80px; /* Clean segment separation */
+  margin-bottom: 100px;
 }
 
-/* Forces flex containers within sections to align beautifully */
-.hero-content, .grid-layout, .services-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
+/* ─── IMAGE FORMAT STRUCTURE MATRIX ─────────────── */
 
-/* ─── TYPOGRAPHY ────────────────────────────────── */
-h1, h2, h3, .logo { 
-  font-family: var(--ffd); 
-  text-align: center;
-}
-button, .btn-y, .btn-o { font-family: var(--ffb); }
+/* 2-Column Split Layout (Hero / Final CTA) */
+.split-grid {
+  display: grid;

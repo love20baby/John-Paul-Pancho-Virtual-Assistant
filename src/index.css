@@ -65,8 +65,6 @@ body {
 }
 
 /* ─── SUB-COMPONENT STRETCH & ALIGN FIXES ────────── */
-/* Forces nested components inside <main className="wrap"> to sit properly on center grid lines */
-/* NOTE: Added :not(#nav) rule to safely exclude the Navbar from global column alignment shattering */
 .wrap > *:not(#nav), main > *, section {
   width: 100%;
   display: flex;
@@ -196,17 +194,15 @@ a:hover {
   z-index: 999;
   background: transparent;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  display: block !important; /* Overrides global component column resets */
+  display: block !important; 
 }
 
-/* Scroll state styling hook */
 #nav.on {
   background: rgba(7, 7, 7, 0.85);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--bdr);
 }
 
-/* Row alignment constraint setup */
 .nav-in {
   width: 100%;
   max-width: var(--max);
@@ -218,7 +214,6 @@ a:hover {
   align-items: center;
 }
 
-/* Brand Text Signature Style with Gold Accent Pipe */
 .logo-brand {
   font-family: var(--ffd);
   font-weight: 700;
@@ -234,7 +229,6 @@ a:hover {
   text-shadow: 0 0 8px rgba(240, 201, 59, 0.4);
 }
 
-/* Desktop Horizontal Navigation Menus */
 .nlinks {
   display: flex;
   align-items: center;
@@ -255,7 +249,6 @@ a:hover {
   text-shadow: 0 0 10px rgba(240, 201, 59, 0.3);
 }
 
-/* Desktop Outlined Action CTA Button */
 .ncta {
   font-family: var(--ffb);
   background: transparent;
@@ -275,7 +268,6 @@ a:hover {
   box-shadow: 0 0 15px var(--y);
 }
 
-/* Mobile Hamburger Menu Layout Bars */
 .brgr {
   display: none;
   flex-direction: column;
@@ -296,12 +288,10 @@ a:hover {
   transition: all 0.3s ease;
 }
 
-/* Morph transformations on menu expand */
 .brgr.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); background: var(--y); }
 .brgr.open span:nth-child(2) { opacity: 0; }
 .brgr.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background: var(--y); }
 
-/* Full Screen Mobile Panel Drawer Overlay Layout */
 .mmenu {
   position: fixed;
   top: 0;
@@ -322,30 +312,34 @@ a:hover {
 .mmenu a { font-size: 22px; font-family: var(--ffd); color: var(--white); }
 .mmenu a:hover { color: var(--y); }
 
-/* ─── MOBILE NAVBAR COMPACTING CONTROLS ─────────── */
 @media (max-width: 768px) {
   .nlinks, .ncta { display: none !important; }
   .brgr { display: flex !important; }
   .nav-in { padding: 20px 24px; }
 }
 
-/* ─── ZOOM-PROOF HERO WIREFRAME LAYOUT (UNTOUCHED) ─── */
+/* ─── ADJUSTED HERO VERTICAL CENTERING SYSTEM ─── */
 #hero.hero-grid-container, #hero {
   display: grid !important;
-  grid-template-columns: minmax(320px, 1.2fr) minmax(300px, 0.8fr); /* Rigid safety bounds for browser zoom scales */
+  grid-template-columns: minmax(320px, 1.2fr) minmax(300px, 0.8fr); 
   gap: 60px;
   width: 100%;
-  min-height: 80vh;
-  align-items: center;
-  padding: 80px 0;
-  margin-bottom: 100px;
+  
+  /* UPDATED: Forces layout tracking to center perfectly across all displays */
+  min-height: 100vh;
+  align-items: center !important;
+  
+  /* UPDATED: Deep top margin clearance blocks navbar overlays gracefully */
+  padding: 180px 0 100px 0;
+  margin-bottom: 40px;
+  box-sizing: border-box;
 }
 
 /* Left Side Text Content Alignment */
 .hero-l {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Keeps items locked left like image_06db86.png */
+  align-items: flex-start; 
   text-align: left !important;
   min-width: 0;
 }
@@ -356,16 +350,19 @@ a:hover {
   letter-spacing: 2px;
   font-size: 13px;
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   white-space: nowrap;
 }
 
 .hero-h1 {
-  font-size: clamp(2.5rem, 5vw, 4.5rem); 
-  line-height: 1.1;
+  font-size: clamp(2.2rem, 4.2vw, 3.8rem); 
+  
+  /* UPDATED: Cleaner multi-line spacing for long business phrases */
+  line-height: 1.25;
   font-weight: 700;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   text-align: left !important;
+  letter-spacing: -0.5px;
 }
 
 .hero-h1 .hl {
@@ -373,11 +370,12 @@ a:hover {
 }
 
 .hero-sub {
-  font-size: 18px;
+  font-size: 17px;
+  line-height: 1.65;
   color: var(--white);
   opacity: 0.85;
   max-width: 580px;
-  margin-bottom: 36px;
+  margin-bottom: 40px;
   text-align: left !important;
 }
 
@@ -386,37 +384,16 @@ a:hover {
   align-items: center;
   flex-direction: row !important;
   gap: 24px;
-  margin-bottom: 48px;
+  margin-bottom: 0px;
   flex-wrap: wrap;
 }
 
-/* Bottom Trust Indicators */
+/* Bottom Trust Indicators (Purged in markup, class kept for stability) */
 .htrust {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  border-top: 1px solid var(--bdr);
-  padding-top: 24px;
-  width: 100%;
+  display: none !important;
 }
 
-.ht {
-  font-size: 13px;
-  color: var(--gray);
-  letter-spacing: 0.5px;
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-}
-
-.ht::before {
-  content: "•"; 
-  color: var(--y); 
-  margin-right: 8px; 
-  font-size: 16px;
-}
-
-/* Right Side Portrait & Absolute Badge Elements */
+/* Right Side Portrait Image Balancing */
 .hero-r {
   display: flex;
   justify-content: center;
@@ -429,6 +406,7 @@ a:hover {
   width: 100%;
   max-width: 380px;
   min-width: 280px;
+  display: block;
 }
 
 .hero-photo {
@@ -440,48 +418,8 @@ a:hover {
   display: block;
 }
 
-/* Floating Micro-Metric Cards */
-.flc {
-  position: absolute;
-  background: rgba(10, 10, 10, 0.92); /* Higher opacity preserves image contrast during deep zooms */
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--bdr);
-  padding: 16px 20px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-  z-index: 2;
-}
-
-.flc strong { 
-  color: var(--y); 
-  font-size: 24px; 
-  font-family: var(--ffd); 
-  margin-bottom: 2px; 
-}
-
-.flc span { 
-  font-size: 12px; 
-  color: var(--white); 
-  opacity: 0.7; 
-  white-space: nowrap; 
-}
-
-/* Strict layout anchor points across the wrapper face edge */
-.fc1 { 
-  top: 12%; 
-  left: -35px; 
-}
-
-.fc2 { 
-  bottom: 15%; 
-  right: -35px; 
-}
-
-/* ─── RESPONSIVE BREAKPOINTS (UNTOUCHED) ─────────── */
+/* ─── RESPONSIVE BREAKPOINTS ─────────────────────── */
 @media (max-width: 992px) {
-  .fc1 { left: -15px; }
-  .fc2 { right: -15px; }
   .metrics-row, .stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -490,7 +428,7 @@ a:hover {
     grid-template-columns: 1fr !important;
     text-align: center !important;
     gap: 48px;
-    padding: 40px 0;
+    padding: 140px 0 60px 0;
   }
   
   .hero-l { 
@@ -512,14 +450,6 @@ a:hover {
     width: 100%; 
     justify-content: center; 
   }
-  
-  .htrust { 
-    justify-content: center; 
-  }
-  
-  /* Retain correct absolute overlays for phone frames */
-  .fc1 { top: 8%; left: -10px; }
-  .fc2 { bottom: 10%; right: -10px; }
   
   .feature-grid, .metrics-row, .stats-grid { 
     grid-template-columns: 1fr; 

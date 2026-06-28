@@ -325,11 +325,11 @@ a:hover {
   gap: 60px;
   width: 100%;
   
-  /* UPDATED: Forces layout tracking to center perfectly across all displays */
+  /* Forces layout tracking to center perfectly across all displays */
   min-height: 100vh;
   align-items: center !important;
   
-  /* UPDATED: Deep top margin clearance blocks navbar overlays gracefully */
+  /* Deep top margin clearance blocks navbar overlays gracefully */
   padding: 180px 0 100px 0;
   margin-bottom: 40px;
   box-sizing: border-box;
@@ -357,7 +357,7 @@ a:hover {
 .hero-h1 {
   font-size: clamp(2.2rem, 4.2vw, 3.8rem); 
   
-  /* UPDATED: Cleaner multi-line spacing for long business phrases */
+  /* Cleaner multi-line spacing for long business phrases */
   line-height: 1.25;
   font-weight: 700;
   margin-bottom: 28px;
@@ -404,7 +404,7 @@ a:hover {
 .hero-image-wrapper {
   position: relative;
   width: 100%;
-  /* FIXED: Enlarged wrapper dimensions to comfortably hold a 9:16 vertical portrait */
+  /* Enlarged wrapper dimensions to comfortably hold a 9:16 vertical portrait */
   max-width: 440px; 
   min-width: 280px;
   display: block;
@@ -412,7 +412,7 @@ a:hover {
 
 .hero-photo {
   width: 100%;
-  /* FIXED: Adjusted to your target portrait aspect ratio so it doesn't cut off your hair */
+  /* Adjusted to your target portrait aspect ratio so it doesn't cut off your hair */
   aspect-ratio: 9 / 16; 
   object-fit: cover;
   border: 1px solid var(--bdr);
@@ -429,8 +429,10 @@ a:hover {
   #hero, .split-grid {
     grid-template-columns: 1fr !important;
     text-align: center !important;
-    gap: 48px;
-    padding: 140px 0 60px 0;
+    gap: 40px;
+    /* FIXED: Adjusted spacing to prevent layout tracking from clipping text or photos */
+    padding: 110px 0 60px 0;
+    min-height: auto !important; 
   }
   
   .hero-l { 
@@ -438,8 +440,29 @@ a:hover {
     text-align: center !important; 
   }
   
-  .hero-h1, .hero-sub {
+  .hero-ey {
+    /* FIXED: Removes desktop text cutoff completely so the yellow text blocks wrap on mobile screens */
+    white-space: normal !important; 
     text-align: center !important;
+    font-size: 12px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    padding: 0 16px;
+  }
+  
+  .hero-h1 {
+    text-align: center !important;
+    font-size: clamp(1.8rem, 7vw, 2.3rem);
+    line-height: 1.3;
+    padding: 0 8px;
+  }
+  
+  .hero-sub {
+    text-align: center !important;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 0 12px;
+    margin-bottom: 36px;
   }
   
   .hero-ctas { 
@@ -451,6 +474,18 @@ a:hover {
   .btn-y { 
     width: 100%; 
     justify-content: center; 
+  }
+
+  /* FIXED: Balances and frames your 9:16 portrait natively inside narrow viewports */
+  .hero-image-wrapper {
+    max-width: 310px; 
+    margin: 0 auto;
+  }
+
+  .hero-photo {
+    aspect-ratio: 9 / 16 !important;
+    width: 100%;
+    height: auto;
   }
   
   .feature-grid, .metrics-row, .stats-grid { 

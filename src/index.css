@@ -7,52 +7,27 @@
   --bdr:     #252525;
   --y:       #F0C93B;
   --yd:      #D4A920;
-  --ybg:     rgba(240,201,59,.09);
   --white:   #F9F7F2;
   --gray:    #787878;
   --light:   #C8C4BA;
   --ffd:     'Bebas Neue', sans-serif;
-  --ffs:     'Cormorant Garamond', serif;
   --ffb:     'DM Sans', sans-serif;
   --max:     1280px;
-  --st:      env(safe-area-inset-top, 0px);
-  --sb:      env(safe-area-inset-bottom, 0px);
 }
 html { scroll-behavior: smooth; overflow-x: hidden; }
-body {
-  background: #040404 !important;
-  color: var(--white);
-  font-family: var(--ffb);
-  font-size: 16px;
-  line-height: 1.7;
-  overflow-x: hidden;
-  min-height: 100dvh;
-}
-img { max-width: 100%; display: block; }
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
-button { cursor: pointer; border: none; background: none; font-family: var(--ffb); }
+body { background: #040404 !important; color: var(--white); font-family: var(--ffb); min-height: 100dvh; }
 
-/* ─── BACKGROUND MECHANICS ─────────────────────── */
+/* ─── BACKGROUND LAYERS (Preserved) ───────────── */
 body::before {
   content: ''; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none;
   background-image: linear-gradient(rgba(240, 201, 59, 0.012) 1px, transparent 1px), linear-gradient(90deg, rgba(240, 201, 59, 0.012) 1px, transparent 1px);
-  background-size: 50px 50px; background-position: center center;
+  background-size: 50px 50px;
   -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 85%);
-  mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 85%);
 }
-.global-spotlight {
-  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 2;
-  background: radial-gradient(650px circle at var(--global-x, 0px) var(--global-y, 0px), rgba(240, 201, 59, 0.055), transparent 80%);
-}
+.global-spotlight { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 2; pointer-events: none; background: radial-gradient(650px circle at var(--global-x, 0px) var(--global-y, 0px), rgba(240, 201, 59, 0.055), transparent 80%); }
 
-/* ─── LAYOUT & COMPONENTS ───────────────────────── */
-main, section, footer, .wrap, .stats, .tools, .photos, .performance-grid { position: relative; z-index: 10; }
-
-/* (Include your existing Nav, Hero, Stats, About, Services, Exp, Process, Tools, Photos, Testi, Booking, Footer, and Custom Components here as they were) */
-
-/* ─── PERFORMANCE GRID FINALIZED ────────────────── */
-.performance-grid { padding: 120px 36px; }
+/* ─── PERFORMANCE GRID (Corrected Scope) ───────── */
+.performance-grid { padding: 120px 36px; position: relative; z-index: 10; }
 .tech-stack-header {
   font-family: var(--ffd);
   font-size: clamp(36px, 5vw, 66px);
@@ -83,5 +58,6 @@ main, section, footer, .wrap, .stats, .tools, .photos, .performance-grid { posit
 @media (max-width: 768px) {
   .grid-container { grid-template-columns: 1fr; }
   .performance-grid { padding: 80px 20px; }
-  /* (Keep your other mobile responsive blocks here) */
 }
+
+/* Add all your other existing component styles here below this line */

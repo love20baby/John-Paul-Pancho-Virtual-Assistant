@@ -4,7 +4,7 @@ export default function Hero() {
       {/* Left Side: Content & Action */}
       <div className="hero-l">
         <div className="hero-ey">
-          Senior Virtual Assistant · 12+ Years · U.S.-Based Clients
+          OPERATIONAL SUPPORT • REVENUE IMPACT • CLIENT RETENTION
         </div>
 
         <h1 className="hero-h1">
@@ -24,11 +24,14 @@ export default function Hero() {
             View Capabilities
           </a>
         </div>
-
-      
+        
+        <div className="htrust">
+          <span className="ht">HIPAA Compliant</span>
+          <span className="ht">Available Full-Time</span>
+        </div>
       </div>
 
-      {/* Right Side: Portrait Image & Floating 3D Stat Cards */}
+      {/* Right Side: Clean Portrait Image Container */}
       <div className="hero-r">
         <div className="hero-image-wrapper">
           <img
@@ -36,14 +39,6 @@ export default function Hero() {
             alt="John Paul Pancho"
             className="hero-photo"
           />
-          <div className="flc fc1">
-            <strong>12+</strong>
-            <span>Years Experience</span>
-          </div>
-          <div className="flc fc2">
-            <strong>$121K+</strong>
-            <span>Revenue in 2 Weeks</span>
-          </div>
         </div>
       </div>
     </section>

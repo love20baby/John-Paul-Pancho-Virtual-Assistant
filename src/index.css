@@ -89,10 +89,10 @@ body {
   grid-template-columns: minmax(300px, 0.8fr) minmax(300px, 1.2fr) !important;
 }
 #about .split-grid > *:first-child {
-  order: 1; /* Photo wrapper structural anchor */
+  order: 1; 
 }
 #about .split-grid > *:last-child {
-  order: 2; /* Description layout text stream */
+  order: 2; 
 }
 
 /* FIXED: WHAT I DO - 2x2 EQUAL HEIGHT CARDS GRID SYSTEM */
@@ -102,7 +102,7 @@ body {
   gap: 24px;
   width: 100%;
   margin-top: 40px;
-  align-items: stretch; /* Forces equal heights horizontally across row partners */
+  align-items: stretch; 
 }
 
 .feature-card {
@@ -111,7 +111,7 @@ body {
   padding: 40px;
   display: flex;
   flex-direction: column;
-  height: 100%; /* Ensures equal containment depth */
+  height: 100%; 
   transition: border-color 0.3s ease, background 0.3s ease;
 }
 
@@ -120,24 +120,26 @@ body {
   background: var(--ybg);
 }
 
-/* FIXED: STATS BAR GRID - INTERACTIVE RUNNING NUMBERS SETUP */
-.metrics-row, .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+/* FIXED: HORIZONTAL STATS BAR SYSTEM WITH COMPONENTS & DIVIDERS */
+.stats-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
+  background: rgba(15, 15, 15, 0.4);
+  border: 1px solid var(--bdr);
+  padding: 30px 40px;
+  gap: 24px;
   margin-top: 40px;
 }
 
 .stat-box {
-  background: rgba(15, 15, 15, 0.4);
-  border: 1px solid var(--bdr);
-  padding: 32px 20px;
-  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  text-align: center;
+  flex: 1;
 }
 
 .stat-number {
@@ -146,16 +148,24 @@ body {
   font-weight: 700;
   color: var(--y);
   line-height: 1;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .stat-label {
   font-family: var(--ffb);
-  font-size: 14px;
+  font-size: 13px;
   color: var(--white);
   opacity: 0.8;
   text-transform: uppercase;
   letter-spacing: 1px;
+  white-space: nowrap; 
+}
+
+/* Structural Divider Element */
+.sdv {
+  width: 1px;
+  height: 50px;
+  background: var(--bdr);
 }
 
 /* FIXED: CAREER HIGHLIGHTS SECTION - 3 DISTINGUISHED GOLD HOVER CARDS */
@@ -494,7 +504,16 @@ a:hover {
 
 /* ─── RESPONSIVE BREAKPOINTS ─────────────────────── */
 @media (max-width: 992px) {
-  .metrics-row, .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid {
+    padding: 30px 20px;
+    gap: 16px;
+  }
+  .stat-number {
+    font-size: 2.3rem;
+  }
+  .stat-label {
+    font-size: 11px;
+  }
   .history-cards-container { grid-template-columns: 1fr; }
 }
 
@@ -507,8 +526,21 @@ a:hover {
     min-height: auto !important; 
   }
   
-  #about .split-grid > *:first-child { order: 2; } /* Mobile priority structural stacking */
+  #about .split-grid > *:first-child { order: 2; } 
   #about .split-grid > *:last-child { order: 1; }
+  
+  /* FIXED: Smooth mobile adaptation for the horizontal stats bar layout */
+  .stats-grid {
+    flex-direction: column !important;
+    gap: 32px;
+    padding: 40px 20px;
+  }
+  .sdv {
+    display: none !important; 
+  }
+  .stat-label {
+    white-space: normal;
+  }
   
   .hero-l { 
     align-items: center; 
@@ -534,7 +566,7 @@ a:hover {
   .hero-image-wrapper { max-width: 310px; margin: 0 auto; }
   .hero-photo { aspect-ratio: 9 / 16 !important; width: 100%; height: auto; }
   
-  .feature-grid, .metrics-row, .stats-grid { grid-template-columns: 1fr; }
+  .feature-grid { grid-template-columns: 1fr; }
   .wrap > *:not(#nav), main > *, section { margin-bottom: 60px; }
   
   .split-grid > * {

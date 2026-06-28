@@ -404,14 +404,16 @@ a:hover {
 .hero-image-wrapper {
   position: relative;
   width: 100%;
-  max-width: 380px;
+  /* FIXED: Enlarged wrapper dimensions to comfortably hold a 9:16 vertical portrait */
+  max-width: 440px; 
   min-width: 280px;
   display: block;
 }
 
 .hero-photo {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  /* FIXED: Adjusted to your target portrait aspect ratio so it doesn't cut off your hair */
+  aspect-ratio: 9 / 16; 
   object-fit: cover;
   border: 1px solid var(--bdr);
   background: #111;

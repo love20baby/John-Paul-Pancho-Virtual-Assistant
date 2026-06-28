@@ -1,56 +1,48 @@
 /* ─── RESET & VARS ─────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --black:   #070707;
-  --dark:    #0f0f0f;
-  --surf:    #171717;
-  --bdr:     #252525;
-  --y:       #F0C93B;
-  --yd:      #D4A920;
-  --white:   #F9F7F2;
-  --gray:    #787878;
-  --light:   #C8C4BA;
-  --ffd:     'Bebas Neue', sans-serif;
-  --ffb:     'DM Sans', sans-serif;
-  --max:     1280px;
+  --black: #070707;
+  --bdr: #252525;
+  --y: #F0C93B;
+  --white: #F9F7F2;
+  --gray: #787878;
+  --ffd: 'Bebas Neue', sans-serif;
+  --ffb: 'DM Sans', sans-serif;
+  --max: 1280px;
 }
-html { scroll-behavior: smooth; overflow-x: hidden; }
-body { background: #040404 !important; color: var(--white); font-family: var(--ffb); min-height: 100dvh; }
+body { background: #040404 !important; color: var(--white); font-family: var(--ffb); }
 
-/* ─── BACKGROUND & UTILITIES ────────────────────── */
-body::before {
-  content: ''; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none;
-  background-image: linear-gradient(rgba(240, 201, 59, 0.012) 1px, transparent 1px), linear-gradient(90deg, rgba(240, 201, 59, 0.012) 1px, transparent 1px);
-  background-size: 50px 50px;
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 85%);
+/* ─── GLOBAL WRAPPER ───────────────────────────── */
+main, section, footer { position: relative; z-index: 10; }
+
+/* ─── PERFORMANCE GRID (FIXED) ──────────────────── */
+.performance-grid { 
+  padding: 120px 36px; 
+  width: 100%; 
+  max-width: var(--max); 
+  margin: 0 auto; 
 }
-
-/* ─── PERFORMANCE GRID (Integrated Scope) ────────── */
-.performance-grid { padding: 120px 36px; position: relative; z-index: 10; width: 100%; }
 .tech-stack-header {
   font-family: var(--ffd);
   font-size: clamp(36px, 5vw, 66px);
   color: var(--y);
   text-align: center;
   margin-bottom: 40px;
-  letter-spacing: 0.02em;
 }
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  max-width: var(--max);
-  margin: 0 auto;
 }
 .col { display: flex; flex-direction: column; gap: 15px; }
 .col img {
-  width: 100%; height: auto; border-radius: 4px;
+  width: 100%; 
+  height: auto; 
+  border-radius: 4px;
   border: 1px solid var(--bdr);
-  transition: transform .3s, border-color .3s;
 }
-.col img:hover { transform: scale(1.02); border-color: var(--y); }
 
-/* ─── RESPONSIVE ────────────────────────────────── */
+/* ─── RESPONSIVE FIXES ───────────────────────────── */
 @media (max-width: 1024px) {
   .grid-container { grid-template-columns: repeat(2, 1fr); }
 }
@@ -58,7 +50,3 @@ body::before {
   .grid-container { grid-template-columns: 1fr; }
   .performance-grid { padding: 80px 20px; }
 }
-
-/* ─── REMAINDER OF YOUR SITE STYLES ──────────────── */
-/* Insert your existing Nav, Hero, Stats, etc., code here. 
-   I removed the duplicate performance-grid styles that were at the bottom. */

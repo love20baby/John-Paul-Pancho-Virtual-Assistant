@@ -102,3 +102,15 @@ export default function ParticleCanvas() {
 
   return <canvas ref={canvasRef} id="bgCanvas" />
 }
+/* ─── CANVAS BG - DENSE INTERACTION ─────────────── */
+#bgCanvas {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  z-index: 0; 
+  /* Allows mouse interaction with the particles */
+  pointer-events: auto; 
+  cursor: crosshair;
+}

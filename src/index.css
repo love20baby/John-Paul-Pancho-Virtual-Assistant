@@ -2,24 +2,14 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --black:   #070707;
-  --dark:    #0f0f0f;
-  --surf:    #171717;
-  --bdr:     #252525;
-  --y:       #F0C93B;
-  --yd:      #D4A920;
-  --ybg:     rgba(240,201,59,.09);
-  --white:   #F9F7F2;
-  --gray:    #787878;
-  --light:   #C8C4BA;
-
-  /* --- UPDATED PREMIUM FONT STACKS --- */
-  --ffd: 'Playfair Display', serif;   /* Headings */
-  --ffb: 'Inter', sans-serif;         /* Body and UI */
-  
+  --black: #070707;
+  --white: #F9F7F2;
+  --y: #F0C93B;
+  --yd: #D4A920;
+  --bdr: #252525;
+  --ffd: 'Playfair Display', serif;
+  --ffb: 'Inter', sans-serif;
   --max: 1280px;
-  --st: env(safe-area-inset-top, 0px);
-  --sb: env(safe-area-inset-bottom, 0px);
 }
 
 body {
@@ -28,22 +18,65 @@ body {
   font-family: var(--ffb);
   font-size: 16px;
   line-height: 1.7;
+  overflow-x: hidden;
+  width: 100%;
 }
-
-/* ─── CENTERING FOUNDATION ──────────────────────── */
-.app-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
-
-.wrap { 
-  width: 100%; max-width: var(--max); margin: 0 auto; 
-  display: flex; flex-direction: column; align-items: center; 
-}
-
-/* ─── TYPOGRAPHY ────────────────────────────────── */
-h1, h2, h3, .logo { font-family: var(--ffd); }
-button, .btn-y, .btn-o { font-family: var(--ffb); }
 
 /* ─── CANVAS BG ─────────────────────────────────── */
 #bgCanvas {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  z-index: 0; pointer-events: auto; cursor: crosshair;
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100vw; 
+  height: 100vh;
+  z-index: -1; /* CRITICAL: Pushes the gold interactive lines safely behind content */
+  pointer-events: auto; 
+  cursor: crosshair;
 }
+
+/* ─── CENTERING FOUNDATION (WEBSITE & MOBILE) ───── */
+.app-container { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1; /* Sits cleanly on top of the fixed background */
+}
+
+.wrap { 
+  width: 100%; 
+  max-width: var(--max); 
+  margin: 0 auto; 
+  padding: 0 24px; /* Adds safe gutters for mobile viewports */
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+}
+
+/* ─── COMPONENT BREAKOUT FIXES ────────────────── */
+section, header, footer, .hero-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* Forces headings, paragraphs, and buttons to center */
+  margin-bottom: 80px; /* Clean segment separation */
+}
+
+/* Forces flex containers within sections to align beautifully */
+.hero-content, .grid-layout, .services-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ─── TYPOGRAPHY ────────────────────────────────── */
+h1, h2, h3, .logo { 
+  font-family: var(--ffd); 
+  text-align: center;
+}
+button, .btn-y, .btn-o { font-family: var(--ffb); }

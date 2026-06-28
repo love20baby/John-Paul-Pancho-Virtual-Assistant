@@ -75,7 +75,7 @@ body {
 
 /* ─── WIREFRAME STRUCTURE LAYOUTS ───────────────── */
 
-/* 2-Column Split Layout (Used across multi-section blocks) */
+/* 2-Column Split Layout (Desktop Baseline) */
 .split-grid {
   display: grid;
   grid-template-columns: minmax(300px, 1.2fr) minmax(300px, 0.8fr);
@@ -84,22 +84,105 @@ body {
   align-items: center;
 }
 
-/* 2x2 Asymmetrical Features/Services Grid */
+/* FIXED: ABOUT ME SECTION - PHOTO ON THE LEFT, DESCRIPTION ON THE RIGHT */
+#about .split-grid {
+  grid-template-columns: minmax(300px, 0.8fr) minmax(300px, 1.2fr) !important;
+}
+#about .split-grid > *:first-child {
+  order: 1; /* Photo wrapper structural anchor */
+}
+#about .split-grid > *:last-child {
+  order: 2; /* Description layout text stream */
+}
+
+/* FIXED: WHAT I DO - 2x2 EQUAL HEIGHT CARDS GRID SYSTEM */
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   width: 100%;
   margin-top: 40px;
+  align-items: stretch; /* Forces equal heights horizontally across row partners */
 }
 
-/* 4-Column Metric / StatsBar Grid Cards */
+.feature-card {
+  background: rgba(15, 15, 15, 0.6);
+  border: 1px solid var(--bdr);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensures equal containment depth */
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.feature-card:hover {
+  border-color: var(--y);
+  background: var(--ybg);
+}
+
+/* FIXED: STATS BAR GRID - INTERACTIVE RUNNING NUMBERS SETUP */
 .metrics-row, .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   width: 100%;
   margin-top: 40px;
+}
+
+.stat-box {
+  background: rgba(15, 15, 15, 0.4);
+  border: 1px solid var(--bdr);
+  padding: 32px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stat-number {
+  font-family: var(--ffd);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--y);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-family: var(--ffb);
+  font-size: 14px;
+  color: var(--white);
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* FIXED: CAREER HIGHLIGHTS SECTION - 3 DISTINGUISHED GOLD HOVER CARDS */
+.history-cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+  margin-top: 40px;
+  align-items: stretch;
+}
+
+.history-card {
+  background: rgba(12, 12, 12, 0.8);
+  border: 1px solid var(--bdr);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+}
+
+.history-card:hover {
+  border-color: var(--y);
+  background: var(--ybg);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(240, 201, 59, 0.05);
 }
 
 /* FAQ / UI Rows List Container */
@@ -185,7 +268,7 @@ a:hover {
   color: var(--y);
 }
 
-/* ─── FIXED EXECUTIVE NAVBAR SYSTEM (NEW & STABILIZED) ─── */
+/* ─── FIXED EXECUTIVE NAVBAR SYSTEM ─── */
 #nav {
   position: fixed;
   top: 0;
@@ -318,24 +401,19 @@ a:hover {
   .nav-in { padding: 20px 24px; }
 }
 
-/* ─── ADJUSTED HERO VERTICAL CENTERING SYSTEM ─── */
+/* ─── HERO VERTICAL CENTERING SYSTEM ─── */
 #hero.hero-grid-container, #hero {
   display: grid !important;
   grid-template-columns: minmax(320px, 1.2fr) minmax(300px, 0.8fr); 
   gap: 60px;
   width: 100%;
-  
-  /* Forces layout tracking to center perfectly across all displays */
   min-height: 100vh;
   align-items: center !important;
-  
-  /* Deep top margin clearance blocks navbar overlays gracefully */
   padding: 180px 0 100px 0;
   margin-bottom: 40px;
   box-sizing: border-box;
 }
 
-/* Left Side Text Content Alignment */
 .hero-l {
   display: flex;
   flex-direction: column;
@@ -356,8 +434,6 @@ a:hover {
 
 .hero-h1 {
   font-size: clamp(2.2rem, 4.2vw, 3.8rem); 
-  
-  /* Cleaner multi-line spacing for long business phrases */
   line-height: 1.25;
   font-weight: 700;
   margin-bottom: 28px;
@@ -388,12 +464,10 @@ a:hover {
   flex-wrap: wrap;
 }
 
-/* Bottom Trust Indicators (Purged in markup, class kept for stability) */
 .htrust {
   display: none !important;
 }
 
-/* Right Side Portrait Image Balancing */
 .hero-r {
   display: flex;
   justify-content: center;
@@ -404,7 +478,6 @@ a:hover {
 .hero-image-wrapper {
   position: relative;
   width: 100%;
-  /* Enlarged wrapper dimensions to comfortably hold a 9:16 vertical portrait */
   max-width: 440px; 
   min-width: 280px;
   display: block;
@@ -412,7 +485,6 @@ a:hover {
 
 .hero-photo {
   width: 100%;
-  /* Adjusted to your target portrait aspect ratio so it doesn't cut off your hair */
   aspect-ratio: 9 / 16; 
   object-fit: cover;
   border: 1px solid var(--bdr);
@@ -423,17 +495,20 @@ a:hover {
 /* ─── RESPONSIVE BREAKPOINTS ─────────────────────── */
 @media (max-width: 992px) {
   .metrics-row, .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .history-cards-container { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
-  #hero, .split-grid {
+  #hero, .split-grid, #about .split-grid {
     grid-template-columns: 1fr !important;
     text-align: center !important;
     gap: 40px;
-    /* FIXED: Adjusted spacing to prevent layout tracking from clipping text or photos */
     padding: 110px 0 60px 0;
     min-height: auto !important; 
   }
+  
+  #about .split-grid > *:first-child { order: 2; } /* Mobile priority structural stacking */
+  #about .split-grid > *:last-child { order: 1; }
   
   .hero-l { 
     align-items: center; 
@@ -441,7 +516,6 @@ a:hover {
   }
   
   .hero-ey {
-    /* FIXED: Removes desktop text cutoff completely so the yellow text blocks wrap on mobile screens */
     white-space: normal !important; 
     text-align: center !important;
     font-size: 12px;
@@ -450,51 +524,18 @@ a:hover {
     padding: 0 16px;
   }
   
-  .hero-h1 {
-    text-align: center !important;
-    font-size: clamp(1.8rem, 7vw, 2.3rem);
-    line-height: 1.3;
-    padding: 0 8px;
-  }
+  .hero-h1, .hero-sub { text-align: center !important; }
+  .hero-h1 { font-size: clamp(1.8rem, 7vw, 2.3rem); line-height: 1.3; padding: 0 8px; }
+  .hero-sub { font-size: 15px; line-height: 1.6; padding: 0 12px; margin-bottom: 36px; }
   
-  .hero-sub {
-    text-align: center !important;
-    font-size: 15px;
-    line-height: 1.6;
-    padding: 0 12px;
-    margin-bottom: 36px;
-  }
+  .hero-ctas { flex-direction: column !important; width: 100%; gap: 16px; }
+  .btn-y { width: 100%; justify-content: center; }
   
-  .hero-ctas { 
-    flex-direction: column !important; 
-    width: 100%; 
-    gap: 16px; 
-  }
+  .hero-image-wrapper { max-width: 310px; margin: 0 auto; }
+  .hero-photo { aspect-ratio: 9 / 16 !important; width: 100%; height: auto; }
   
-  .btn-y { 
-    width: 100%; 
-    justify-content: center; 
-  }
-
-  /* FIXED: Balances and frames your 9:16 portrait natively inside narrow viewports */
-  .hero-image-wrapper {
-    max-width: 310px; 
-    margin: 0 auto;
-  }
-
-  .hero-photo {
-    aspect-ratio: 9 / 16 !important;
-    width: 100%;
-    height: auto;
-  }
-  
-  .feature-grid, .metrics-row, .stats-grid { 
-    grid-template-columns: 1fr; 
-  }
-  
-  .wrap > *:not(#nav), main > *, section { 
-    margin-bottom: 60px; 
-  }
+  .feature-grid, .metrics-row, .stats-grid { grid-template-columns: 1fr; }
+  .wrap > *:not(#nav), main > *, section { margin-bottom: 60px; }
   
   .split-grid > * {
     display: flex;

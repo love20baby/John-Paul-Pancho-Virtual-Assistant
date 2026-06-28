@@ -3,13 +3,16 @@ export default function Hero() {
     <section id="hero" className="hero-grid-container">
       {/* Left Side: Content & Action */}
       <div className="hero-l">
+        {/* Eyebrow kicker completely restored to the top */}
         <div className="hero-ey">
           Revenue Operations & Virtual Support Specialist
         </div>
 
-        <h1 className="hero-h1">
-          OPERATIONAL SUPPORT.REVENUE IMPACT. CLIENT RETENTION.<br />
-          <span className="hl">CLIENT RETENTION.</span>
+        {/* Big Header: Stacked pillars with core impact terms targeted in gold */}
+        <h1 className="hero-h1" style={{ textTransform: 'uppercase' }}>
+          <span className="hl">OPERATIONAL</span> SUPPORT.<br />
+          <span className="hl">REVENUE</span> IMPACT.<br />
+          CLIENT <span className="hl">RETENTION</span>.
         </h1>
 
         <p className="hero-sub">
@@ -23,11 +26,6 @@ export default function Hero() {
           <a href="#services" className="btn-o" data-track="hero_services">
             View Capabilities
           </a>
-        </div>
-        
-        <div className="htrust">
-          <span className="ht">HIPAA Compliant</span>
-          <span className="ht">Available Full-Time</span>
         </div>
       </div>
 

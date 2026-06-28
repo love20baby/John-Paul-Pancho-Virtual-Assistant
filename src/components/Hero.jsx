@@ -4,12 +4,12 @@ export default function Hero() {
       {/* Left Side: Content & Action */}
       <div className="hero-l">
         <div className="hero-ey">
-          OPERATIONAL SUPPORT • REVENUE IMPACT • CLIENT RETENTION
+          Revenue Operations & Virtual Support Specialist
         </div>
 
         <h1 className="hero-h1">
-          REAL WORK.<br />
-          <span className="hl">REAL RESULTS.</span>
+          OPERATIONAL SUPPORT.REVENUE IMPACT. CLIENT RETENTION.<br />
+          <span className="hl">CLIENT RETENTION.</span>
         </h1>
 
         <p className="hero-sub">

@@ -1,64 +1,999 @@
+
+
 /* ─── 01. RESET & SYSTEM CORE ─────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --black: #070707; --white: #F9F7F2; --y: #F0C93B; --yd: #D4A920;
-  --bdr: #252525; --ffb: 'Inter', sans-serif; --max: 1280px;
+--black: #070707; --white: #F9F7F2; --y: #F0C93B; --yd: #D4A920;
+--ybg: rgba(240, 201, 59, 0.08); --bdr: #252525; --ffb: 'Inter', sans-serif; --max: 1280px;
 }
 body { background: var(--black); color: var(--white); font-family: var(--ffb); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
 
-/* ─── 02. LAYOUT FOUNDATION ───────────────────────── */
-.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+/* ─── 02. BACKGROUND ANIMATION SECTION ────────────── */
+#bgCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 
-/* ─── 03. ABOUT SECTION ───────────────────────────── */
-.about-section { padding: 80px 24px; background: var(--black); }
+/* ─── 03. LAYOUT FOUNDATION SECTION ───────────────── */
+.app-container { display: flex; flex-direction: column; align-items: center; width: 100%; min-height: 100vh; position: relative; }
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+main { width: 100%; }
+
+/* ─── 04. NAVBAR ANIMATION SECTION ────────────────── */
+.nav-master-container { position: fixed; top: 0; left: 0; width: 100%; height: 80px; padding: 0 40px; z-index: 1000; transition: background 0.3s ease; display: flex; align-items: center; }
+.nav-master-container.on { background: rgba(7, 7, 7, 0.95); backdrop-filter: blur(5px); }
+.nav-in { display: flex; justify-content: space-between; align-items: center; max-width: var(--max); margin: 0 auto; width: 100%; }
+
+.logo-brand { text-decoration: none; color: var(--white); font-weight: 800; font-size: 1.4rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; }
+.logo-brand:hover { color: var(--y); opacity: 0.8; }
+.gold-pipe { color: var(--y); margin: 0 8px; font-weight: 400; }
+
+.nlinks { display: flex; list-style: none; gap: 30px; }
+.nlinks a { text-decoration: none; color: #D3D3D3; font-weight: 500; transition: color 0.3s ease; }
+.nlinks a:hover { color: var(--y); }
+
+.ncta { background: transparent; border: 1px solid var(--y); color: var(--white); padding: 8px 16px; text-decoration: none; font-size: 0.9rem; font-weight: 600; border-radius: 4px; transition: all 0.3s; }
+.ncta:hover { background: var(--y); color: var(--black); }
+
+/* ─── 05. HERO SECTION ANIMATION SECTION ──────────── */
+#hero { width: 100%; padding: 150px 24px 100px 24px; display: flex; justify-content: center; }
+.hero-grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; width: 100%; max-width: var(--max); }
+.hero-l { display: flex; flex-direction: column; align-items: flex-start; }
+.hero-h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 28px; }
+.hero-photo { width: 100%; max-width: 440px; aspect-ratio: 9/16; object-fit: cover; border: 1px solid var(--bdr); display: block; }
+.hero-ey { color: #FFFFFF; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+.hl { color: var(--y); }
+.hero-sub { margin-bottom: 30px; font-size: 1.1rem; max-width: 600px; }
+.btn-y { background: var(--y); color: var(--black); padding: 14px 28px; text-decoration: none; font-weight: 700; border-radius: 4px; }
+.btn-o { background: transparent; border: 1px solid var(--y); color: var(--white); padding: 14px 28px; text-decoration: none; border-radius: 4px; }
+
+/* ─── 06. STATS BAR ANIMATION SECTION ─────────────── */
+.stats-section-divider { width: 100%; padding: 80px 24px; background: var(--black); border-top: 1px solid var(--bdr); border-bottom: 1px solid var(--bdr); }
+.stats-grid { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: var(--max); margin: 0 auto; }
+.stat-box { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.stat-number { color: var(--y); font-size: clamp(2rem, 3vw, 2.5rem); font-weight: 800; line-height: 1; margin-bottom: 8px; }
+.stat-label { color: #666; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 600; }
+.sdv { width: 1px; height: 50px; background: var(--bdr); margin: 0 20px; }
+
+/* ─── 07. RESPONSIVE & BREAKPOINT SECTION ──────────── */
+.brgr { display: none; background: none; border: none; cursor: pointer; }
+.mmenu { display: none !important; } /* Force hidden on desktop */
+
+@media (max-width: 992px) {
+.hero-grid-container { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+.hero-l { align-items: center; }
+.hero-photo { margin: 0 auto; }
+}
+@media (max-width: 768px) {
+.nlinks, .ncta { display: none; }
+.brgr { display: block; }
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.sdv { display: none; }
+}
+/* ─── 08. ABOUT SECTION ─────────────── */
+.about-section { padding: 100px 24px; background: var(--black); }
+.about-grid {
+display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+max-width: var(--max); margin: 0 auto; align-items: start;
+}
+.about-photo { width: 100%; border-radius: 4px; object-fit: cover; }
+.capabilities-box { border: 1px solid var(--bdr); padding: 20px; margin-top: 30px; }
+.cap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
+
+/* Responsive */
+@media (max-width: 992px) {
+.about-grid { grid-template-columns: 1fr; }
+}
+/* ─── ABOUT SECTION STYLES ─── */
+.about-section { padding: 100px 24px; background: var(--black); }
 .about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 60px; max-width: var(--max); margin: 0 auto; align-items: start; }
-.about-photo { width: 100%; border-radius: 4px; object-fit: cover; display: block; }
 .about-eyebrow { color: var(--white); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 20px; }
-.about-h2 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 25px; }
-.about-text { margin-bottom: 15px; color: #a0a0a0; font-size: 0.95rem; line-height: 1.6; }
+.about-h2 { font-size: 3rem; line-height: 1.1; margin-bottom: 30px; }
+.about-text { margin-bottom: 20px; color: #a0a0a0; font-size: 1rem; line-height: 1.6; }
 .highlight { color: var(--y); font-weight: 600; }
 
-/* ─── 04. CORE CAPABILITY SECTION ─────────────────── */
-.capability-container { 
-  background: #0a0a0a; 
-  padding: 20px; /* Reduced padding to make it smaller */
-  border: 1px solid #1a1a1a; 
-  margin-top: 20px; 
+/* Core Capability Section Background & Padding */
+.capability-container {
+background: #0a0a0a;
+padding: 30px;
+border: 1px solid #1a1a1a;
+margin-top: 30px;
 }
 
-.cap-header { 
-  background: #1a1a15; 
-  color: var(--y); 
-  padding: 10px 15px; 
-  margin-bottom: 20px; 
-  font-size: 0.75rem; 
-  letter-spacing: 1.5px;
+/* Header with background bar */
+.cap-header {
+background: #1a1a15; /* Dark brownish-yellow bar */
+color: var(--y);
+padding: 15px;
+margin-bottom: 30px;
+font-size: 0.8rem;
+letter-spacing: 1.5px;
 }
 
-.cap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.cap-label { color: var(--y); font-size: 0.65rem; font-weight: 700; margin-bottom: 12px; display: block; text-transform: uppercase; }
-
-/* PILL STYLING */
-.pill { 
-  border: 1px solid #333; 
-  padding: 10px 15px; 
-  border-radius: 50px; 
-  font-size: 0.8rem; 
-  margin-bottom: 8px; 
-  color: #fff; 
-  transition: all 0.3s ease;
-  cursor: pointer;
+/* Grid layout for the columns */
+.cap-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 40px;
 }
 
-/* HOVER HIGHLIGHT EFFECT */
-.pill:hover { 
-  border: 1px solid var(--y); 
-  color: var(--y); 
-  background: rgba(240, 201, 59, 0.05);
+/* Labels */
+.cap-label {
+color: var(--y);
+font-size: 0.7rem;
+font-weight: 700;
+margin-bottom: 20px;
+display: block;
 }
 
-.mt-20 { margin-top: 15px; }
+/* Pill Styling */
+.pill {
+border: 1px solid #333;
+padding: 15px 20px;
+border-radius: 50px;
+font-size: 0.85rem;
+margin-bottom: 12px;
+color: #fff;
+}
 
-/* ─── 05. RESPONSIVE ──────────────────────────────── */
-@media (max-width: 992px) { .about-grid { grid-template-columns: 1fr; } }
-@media (max-width: 768px) { .about-h2 { font-size: 1.8rem; } .cap-grid { grid-template-columns: 1fr; } }
+/* The Active Highlight matching image_91dab7.png */
+.pill.active {
+border: 1px solid var(--y);
+color: var(--y);
+}
+
+.mt-20 { margin-top: 25px; }
+
+@media (max-width: 768px) {
+.about-grid { grid-template-columns: 1fr; }
+.about-h2 { font-size: 2rem; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

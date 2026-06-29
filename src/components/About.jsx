@@ -4,7 +4,7 @@ export default function About() {
       <div className="wrap">
         <div className="about-grid">
           <div className="about-l">
-            <img src="/your-photo.jpg" alt="About Me" className="about-photo" />
+            <img src="/images/laptop1.png" alt="About Me" className="about-photo" />
           </div>
           <div className="about-r">
             <h4 className="about-eyebrow">— ABOUT ME</h4>

@@ -32,10 +32,7 @@ export default function About() {
     {/* Operations Column */}
     <div className="cap-col">
       <span className="cap-label">OPERATIONS & AUTOMATION</span>
-      <div className="pill">CRM Systems & Workflow Automation</div>
-      <div className="pill">Revenue Operations Support</div>
-      <div className="pill active">Medical VA (HIPAA-Compliant Operations)</div>
-    </div>
+     </div>
     
     {/* Sales & Retention Column */}
     <div className="cap-col">

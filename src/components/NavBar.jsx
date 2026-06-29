@@ -32,13 +32,12 @@ export default function NavBar() {
   }, [])
 
   return (
-    // REMOVED the broken .wrap class to stop layout distortion from image_409e61.png
     <nav id="nav" className="nav-master-container" ref={navRef}>
       <div className="nav-in">
-        {/* Brand Text Identity Signature with Gold Accent Segment */}
-        <div className="logo-brand">
+        {/* Updated: Logo is now a clickable link to #hero */}
+        <a href="#hero" className="logo-brand">
           JP <span className="gold-pipe">|</span> VA
-        </div>
+        </a>
 
         <ul className="nlinks">
           <li><a href="#about">About</a></li>
@@ -57,7 +56,6 @@ export default function NavBar() {
         </button>
       </div>
 
-      {/* Mobile Pop-out Panel Menu */}
       <div className="mmenu" ref={mmRef}>
         <a href="#about">About</a>
         <a href="#services">Services</a>

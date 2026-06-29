@@ -68,7 +68,7 @@ main { width: 100%; }
   .sdv { display: none; }
 }
 /* Add these to your index.css if they aren't there already */
-.hero-ey { color: #00d4ff; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+.hero-ey { color: #FFFFFF; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
 .hl { color: var(--y); }
 .hero-sub { margin-bottom: 30px; font-size: 1.1rem; max-width: 600px; }
 .hero-ctas { display: flex; gap: 20px; }

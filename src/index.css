@@ -202,95 +202,36 @@ color: var(--y);
   .cap-grid { grid-template-columns: 1fr; }
 }
 /* ─── MARQUEE CORE STYLES ───────────── */
-.marquee-section { padding: 40px 0; background: var(--black); overflow: hidden; }
-.mqwrap { display: flex; width: 100%; cursor: pointer; }
-.mt-30 { margin-top: 30px; }
-
-/* Right to Left (Tools) */
-.mqtrack-rtl { display: flex; gap: 20px; animation: scrollLeft 80s linear infinite; white-space: nowrap; }
-/* Left to Right (Feedback) */
-.mqtrack-ltr { display: flex; gap: 20px; animation: scrollRight 80s linear infinite; white-space: nowrap; }
-
-/* Pause on hover */
-.mqwrap:hover .mqtrack-rtl, .mqwrap:hover .mqtrack-ltr { animation-play-state: paused; }
-
-@keyframes scrollLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@keyframes scrollRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-
-/* Pill Styling */
-.mpill, .fpill {
-  padding: 12px 24px;
-  border: 1px solid var(--bdr);
-  border-radius: 50px;
-  color: #a0a0a0;
-  font-size: 0.85rem;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-
-.mpill:hover, .fpill:hover {
-  border: 1px solid var(--y);
-  color: var(--y);
-  background: var(--ybg);
-}
-/* Layout and Title */
-.marquee-section { background: #070707; padding: 40px 0; overflow: hidden; }
-.section-title { 
-  text-align: center; color: var(--y); margin-bottom: 30px; 
-  letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase; 
-}
-
-/* Marquee Tracks */
-.mqwrap { display: flex; width: 100%; margin-bottom: 15px; cursor: pointer; }
-.mqtrack-rtl, .mqtrack-ltr { display: flex; gap: 15px; animation-duration: 60s; animation-timing-function: linear; animation-iteration-count: infinite; }
-.mqtrack-rtl { animation-name: scrollLeft; }
-.mqtrack-ltr { animation-name: scrollRight; }
-
-/* Pause and Highlight on Hover */
-.mqwrap:hover .mqtrack-rtl, .mqwrap:hover .mqtrack-ltr { animation-play-state: paused; }
-
-@keyframes scrollLeft { from { transform: translateX(0); } to { transform: translateX(-33.33%); } }
-@keyframes scrollRight { from { transform: translateX(-33.33%); } to { transform: translateX(0); } }
-
-/* Pill Styling */
-.mpill { 
-  display: flex; align-items: center; padding: 8px 18px; border: 1px solid #252525; border-radius: 50px; 
-  background: #0a0a0a; color: #fff; font-size: 0.8rem; white-space: nowrap; transition: 0.3s; 
-}
-.fpill { 
-  padding: 12px 24px; border: 1px solid #333; border-radius: 50px; 
-  background: #0a0a0a; color: #a0a0a0; font-size: 0.85rem; white-space: nowrap; transition: 0.3s; 
-}
-
-/* The Gold Highlight */
-.mpill:hover, .fpill:hover { border: 1px solid var(--y); color: var(--y); background: var(--ybg); }
-.pill-icon { margin-right: 8px; }
 .marquee-wrapper { background: #070707; padding: 40px 0; overflow: hidden; }
 
-/* Section Header with Borders */
+/* Section Header with Belt Borders */
 .section-header {
   border-top: 1px solid #1a1a1a;
   border-bottom: 1px solid #1a1a1a;
-  padding: 15px 0;
+  padding: 25px 0;
   margin-bottom: 30px;
   text-align: center;
 }
 
 .section-title { 
   color: var(--y); 
-  letter-spacing: 2px; 
-  font-size: 0.8rem; 
-  font-weight: 700; 
+  letter-spacing: 3px; 
+  font-size: 1.2rem; 
+  font-weight: 800; 
   text-transform: uppercase;
   margin: 0;
 }
 
-.mt-20 { margin-top: 20px; }
-
 /* Marquee Tracks */
 .mqwrap { display: flex; width: 100%; cursor: pointer; margin-bottom: 15px; }
 
-.mqtrack-rtl, .mqtrack-ltr { display: flex; gap: 15px; animation-duration: 60s; animation-timing-function: linear; animation-iteration-count: infinite; }
+.mqtrack-rtl, .mqtrack-ltr { 
+  display: flex; gap: 15px; 
+  animation-duration: 80s; 
+  animation-timing-function: linear; 
+  animation-iteration-count: infinite; 
+}
+
 .mqtrack-rtl { animation-name: scrollLeft; }
 .mqtrack-ltr { animation-name: scrollRight; }
 
@@ -304,6 +245,7 @@ color: var(--y);
   display: flex; align-items: center; padding: 8px 18px; border: 1px solid #1a1a1a; border-radius: 50px; 
   background: #0a0a0a; color: #fff; font-size: 0.8rem; white-space: nowrap; transition: 0.3s; 
 }
+
 .fpill { 
   padding: 12px 24px; border: 1px solid #1a1a1a; border-radius: 50px; 
   background: #0a0a0a; color: #a0a0a0; font-size: 0.85rem; white-space: nowrap; transition: 0.3s; 
@@ -313,6 +255,8 @@ color: var(--y);
 
 /* Hover Effects */
 .mpill:hover, .fpill:hover { border: 1px solid var(--y); color: var(--y); }
+
+.mt-20 { margin-top: 20px; }
 
 
 

@@ -1,44 +1,38 @@
-/* ─── STATS BAR ALIGNMENT ─── */
-.stats-section-divider {
-  width: 100%;
-  padding: 80px 24px;
-  background: var(--black);
-  border-top: 1px solid var(--bdr);
-  border-bottom: 1px solid var(--bdr);
-}
+export default function StatsBar() {
+  // Your existing useEffect/IntersectionObserver logic remains here
 
-.stats-grid {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: var(--max);
-  margin: 0 auto;
-  gap: 20px;
-}
-
-.stat-box {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-/* The Divider: Now explicitly styled to fit between flex items */
-.sdv {
-  width: 1px;
-  height: 50px;
-  background: var(--bdr);
-  flex-shrink: 0; /* Ensures it doesn't get squashed */
-}
-
-/* Desktop: 4 columns visible */
-@media (max-width: 768px) {
-  .stats-grid { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 40px; 
-  }
-  .sdv { display: none; } /* Hide dividers on mobile */
+  return (
+    <section className="stats-section-divider">
+      <div className="wrap">
+        <div className="stats-grid">
+          {/* Stat 1 */}
+          <div className="stat-box">
+            <div className="stat-number"><span className="cnt" data-to="12">0</span>+</div>
+            <div className="stat-label">Years Experience</div>
+          </div>
+          <div className="sdv" />
+          
+          {/* Stat 2 */}
+          <div className="stat-box">
+            <div className="stat-number">$<span className="cnt" data-to="121">0</span>K+</div>
+            <div className="stat-label">Revenue in 2 Weeks</div>
+          </div>
+          <div className="sdv" />
+          
+          {/* Stat 3 */}
+          <div className="stat-box">
+            <div className="stat-number"><span className="cnt" data-to="1000">0</span>+</div>
+            <div className="stat-label">Monthly Interactions</div>
+          </div>
+          <div className="sdv" />
+          
+          {/* Stat 4 */}
+          <div className="stat-box">
+            <div className="stat-number"><span className="cnt" data-to="75">0</span>%</div>
+            <div className="stat-label">Sales Conversion Rate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

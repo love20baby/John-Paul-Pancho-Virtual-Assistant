@@ -79,3 +79,22 @@ main { width: 100%; }
 @media (max-width: 992px) {
   .about-grid { grid-template-columns: 1fr; }
 }
+/* ─── ABOUT SECTION STYLES ─── */
+.about-section { padding: 100px 24px; background: var(--black); }
+.about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 60px; max-width: var(--max); margin: 0 auto; align-items: start; }
+.about-eyebrow { color: var(--white); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 20px; }
+.about-h2 { font-size: 3rem; line-height: 1.1; margin-bottom: 30px; }
+.about-text { margin-bottom: 20px; color: #a0a0a0; font-size: 1rem; line-height: 1.6; }
+.highlight { color: var(--y); font-weight: 600; }
+
+.capability-container { border: 1px solid #252525; padding: 25px; margin-top: 30px; }
+.cap-header { color: var(--y); font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 20px; }
+.cap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.cap-label { color: #fff; font-size: 0.7rem; font-weight: 700; display: block; margin-bottom: 12px; }
+.pill { border: 1px solid #333; padding: 10px 15px; border-radius: 50px; font-size: 0.8rem; margin-bottom: 10px; color: #fff; }
+.mt-20 { margin-top: 20px; }
+
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-h2 { font-size: 2rem; }
+}

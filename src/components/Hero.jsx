@@ -5,9 +5,9 @@ export default function Hero() {
         {/* Left Side: Content & Action */}
         <div className="hero-l">
           {/* Updated: Added class hl to apply the theme color */}
-          <div className="hero-ey hl">
-            Revenue Operations & Virtual Support Specialist
-          </div>
+          <div className="hero-ey">
+  Revenue Operations & Virtual Support Specialist
+</div>
 
           <h1 className="hero-h1" style={{ textTransform: 'uppercase' }}>
             <span className="hl">OPERATIONAL</span> SUPPORT.<br />

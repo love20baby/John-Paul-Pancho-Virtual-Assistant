@@ -145,7 +145,64 @@ color: var(--y);
 .about-grid { grid-template-columns: 1fr; }
 .about-h2 { font-size: 2rem; }
 }
+/* ─── 08. FINAL ABOUT & CAPABILITY SECTION FIX ─────────── */
+.about-section { padding: 100px 24px; background: var(--black); }
+.about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 60px; max-width: var(--max); margin: 0 auto; align-items: start; }
+.about-photo { width: 100%; border-radius: 4px; object-fit: cover; }
+.about-eyebrow { color: var(--white); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 20px; }
+.about-h2 { font-size: 3rem; line-height: 1.1; margin-bottom: 30px; }
+.about-text { margin-bottom: 20px; color: #a0a0a0; font-size: 1rem; line-height: 1.6; }
+.highlight { color: var(--y); font-weight: 600; }
 
+/* Centered & Compact Capabilities Section */
+.capability-container {
+  background: #0a0a0a;
+  padding: 20px; /* Reduced to make the section smaller */
+  border: 1px solid #1a1a1a;
+  margin-top: 20px;
+  text-align: center; /* Centers the content */
+}
+
+.cap-header {
+  background: #1a1a15;
+  color: var(--y);
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  display: inline-block; /* Helps with centering */
+}
+
+.cap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.cap-label { color: var(--y); font-size: 0.7rem; font-weight: 700; margin-bottom: 15px; display: block; }
+
+/* Pill Styling with Gold Hover Effect */
+.pill {
+  border: 1px solid #333;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  color: #fff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.pill:hover {
+  border: 1px solid var(--y);
+  color: var(--y);
+  background: rgba(240, 201, 59, 0.05);
+}
+
+.pill.active { border: 1px solid var(--y); color: var(--y); }
+.mt-20 { margin-top: 15px; }
+
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-h2 { font-size: 2rem; }
+  .cap-grid { grid-template-columns: 1fr; }
+}
 
 
 

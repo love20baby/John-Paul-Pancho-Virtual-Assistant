@@ -203,7 +203,38 @@ color: var(--y);
   .about-h2 { font-size: 2rem; }
   .cap-grid { grid-template-columns: 1fr; }
 }
+/* ─── MARQUEE CORE STYLES ───────────── */
+.marquee-section { padding: 40px 0; background: var(--black); overflow: hidden; }
+.mqwrap { display: flex; width: 100%; cursor: pointer; }
+.mt-30 { margin-top: 30px; }
 
+/* Right to Left (Tools) */
+.mqtrack-rtl { display: flex; gap: 20px; animation: scrollLeft 80s linear infinite; white-space: nowrap; }
+/* Left to Right (Feedback) */
+.mqtrack-ltr { display: flex; gap: 20px; animation: scrollRight 80s linear infinite; white-space: nowrap; }
+
+/* Pause on hover */
+.mqwrap:hover .mqtrack-rtl, .mqwrap:hover .mqtrack-ltr { animation-play-state: paused; }
+
+@keyframes scrollLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes scrollRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+/* Pill Styling */
+.mpill, .fpill {
+  padding: 12px 24px;
+  border: 1px solid var(--bdr);
+  border-radius: 50px;
+  color: #a0a0a0;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.mpill:hover, .fpill:hover {
+  border: 1px solid var(--y);
+  color: var(--y);
+  background: var(--ybg);
+}
 
 
 

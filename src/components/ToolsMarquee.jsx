@@ -21,6 +21,21 @@ const FEEDBACK = [
   "★★★★★ Patient Feedback: 'Reliable, thorough, and outstanding service. The tracking support is top-tier.' — Beth Macpherson"
 ];
 
+const getIcon = (tool) => {
+  const icons = {
+    'TheraOffice': '🏥', 'Acuity Scheduling': '📅', 'Quo VoIP': '📞', 'Stax Payments': '💳', 'Slice Payments': '💰',
+    'Google Workspace': '☁️', 'Microsoft 365': '🏢', 'Zoom': '📹', 'Slack': '💬', 'Google Docs': '📄',
+    'Google Sheets': '📊', 'Excel': '🔢', 'Shopify': '🛍️', 'Gorgias': '🎧', 'Facebook Business Suite': '👤',
+    'TikTok Seller Center': '🎵', 'TikTok Live': '⚡', 'Meta Business Suite': '📱', 'Salesforce': '☁️',
+    'HubSpot': '🎯', 'ClickUp': '✅', 'Practice Better': '🩺', 'Zendesk': '🎫', 'Freshdesk': '📦',
+    'Google Meet': '🎥', 'Microsoft Teams': '👥', 'WhatsApp': '💬', 'Telegram': '✈️', 'Discord': '🎮',
+    'Trello': '📋', 'Asana': '🚀', 'Monday.com': '📈', 'Notion': '📝', 'Loom': '🎥', 'Scribe': '✍️',
+    'Make.com': '⚙️', 'Zapier': '⚡', 'ChatGPT': '🤖', 'Claude': '🧠', 'Gemini': '✨', 'Avaya': '☎️',
+    'Cisco Finesse': '🖥️', 'Salesforce Service Cloud': '☁️', 'HIPAA-Compliance Systems': '🔒'
+  };
+  return icons[tool] || '🔹';
+};
+
 export default function ToolsAndFeedback() {
   return (
     <section className="marquee-wrapper">
@@ -30,7 +45,9 @@ export default function ToolsAndFeedback() {
       <div className="mqwrap">
         <div className="mqtrack-rtl">
           {[...TOOLS, ...TOOLS].map((tool, i) => (
-            <span key={i} className="mpill">{tool}</span>
+            <span key={i} className="mpill">
+              <span className="pill-icon">{getIcon(tool)}</span> {tool}
+            </span>
           ))}
         </div>
       </div>

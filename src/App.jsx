@@ -1,10 +1,11 @@
+import './index.css';
 import ParticleCanvas from './components/ParticleCanvas';
 import NavBar from './components/NavBar';
 import Hero from './components/Hero';
 import StatsBar from './components/StatsBar';
 import About from './components/About';
 import ToolsMarquee from './components/ToolsMarquee';
-import ProvenImpact from './components/ProvenImpact'; // Integrated new section name
+import ProvenImpact from './components/ProvenImpact';
 import Services from './components/Services';
 import Experience from './components/Experience';
 import Process from './components/Process';
@@ -17,20 +18,20 @@ import useParallax from './hooks/useParallax';
 import useCountUp from './hooks/useCountUp';
 
 export default function App() {
-  // Initialize operational hooks for scroll animations, parallax effects, and data-tracking statistics
+  // Initialize operational hooks
   useScrollReveal();
   useParallax();
   useCountUp();
 
   return (
     <div className="app-container">
-      {/* Dynamic Background Foundation */}
+      {/* Dynamic Background */}
       <ParticleCanvas />
       
-      {/* Core Navigation */}
+      {/* Navigation */}
       <NavBar />
 
-      {/* Main Content Sections - Clean, full-bleed flexible matrix layout */}
+      {/* Main Content */}
       <main style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Hero />
         <StatsBar />
@@ -45,7 +46,7 @@ export default function App() {
         <Booking />
       </main>
 
-      {/* Footer & Branding */}
+      {/* Footer */}
       <Footer />
     </div>
   );

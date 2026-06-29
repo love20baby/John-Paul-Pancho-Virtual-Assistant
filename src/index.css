@@ -235,7 +235,38 @@ color: var(--y);
   color: var(--y);
   background: var(--ybg);
 }
+/* Layout and Title */
+.marquee-section { background: #070707; padding: 40px 0; overflow: hidden; }
+.section-title { 
+  text-align: center; color: var(--y); margin-bottom: 30px; 
+  letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase; 
+}
 
+/* Marquee Tracks */
+.mqwrap { display: flex; width: 100%; margin-bottom: 15px; cursor: pointer; }
+.mqtrack-rtl, .mqtrack-ltr { display: flex; gap: 15px; animation-duration: 60s; animation-timing-function: linear; animation-iteration-count: infinite; }
+.mqtrack-rtl { animation-name: scrollLeft; }
+.mqtrack-ltr { animation-name: scrollRight; }
+
+/* Pause and Highlight on Hover */
+.mqwrap:hover .mqtrack-rtl, .mqwrap:hover .mqtrack-ltr { animation-play-state: paused; }
+
+@keyframes scrollLeft { from { transform: translateX(0); } to { transform: translateX(-33.33%); } }
+@keyframes scrollRight { from { transform: translateX(-33.33%); } to { transform: translateX(0); } }
+
+/* Pill Styling */
+.mpill { 
+  display: flex; align-items: center; padding: 8px 18px; border: 1px solid #252525; border-radius: 50px; 
+  background: #0a0a0a; color: #fff; font-size: 0.8rem; white-space: nowrap; transition: 0.3s; 
+}
+.fpill { 
+  padding: 12px 24px; border: 1px solid #333; border-radius: 50px; 
+  background: #0a0a0a; color: #a0a0a0; font-size: 0.85rem; white-space: nowrap; transition: 0.3s; 
+}
+
+/* The Gold Highlight */
+.mpill:hover, .fpill:hover { border: 1px solid var(--y); color: var(--y); background: var(--ybg); }
+.pill-icon { margin-right: 8px; }
 
 
 

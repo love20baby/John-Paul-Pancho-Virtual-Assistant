@@ -4,7 +4,8 @@ export default function Hero() {
       <div className="hero-grid-container">
         {/* Left Side: Content & Action */}
         <div className="hero-l">
-          <div className="hero-ey">
+          {/* Updated: Added class hl to apply the theme color */}
+          <div className="hero-ey hl">
             Revenue Operations & Virtual Support Specialist
           </div>
 

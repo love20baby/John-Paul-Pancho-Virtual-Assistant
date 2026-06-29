@@ -3,9 +3,12 @@ export default function About() {
     <section id="about" className="about-section">
       <div className="wrap">
         <div className="about-grid">
+          {/* Photo Column */}
           <div className="about-l">
-            <img src="/images/laptop1.png" alt="About Me" className="about-photo" />
+            <img src="/images/laptop1.png" alt="Operational Specialist" className="about-photo" />
           </div>
+
+          {/* Text/Content Column */}
           <div className="about-r">
             <h4 className="about-eyebrow">— ABOUT ME</h4>
             <h2 className="about-h2">OPERATIONAL EXECUTION. REVENUE IMPACT. SYSTEM OPTIMIZATION.</h2>
@@ -28,7 +31,7 @@ export default function About() {
               <div className="cap-grid">
                 <div className="cap-col">
                   <span className="cap-label">OPERATIONS & AUTOMATION</span>
-                  <div className="pill">CRM Systems & Workflow Automation</div>
+                  <div className="pill active">CRM Systems & Workflow Automation</div>
                   <div className="pill">Revenue Operations Support</div>
                   <div className="pill">Medical VA (HIPAA-Compliant Operations)</div>
                 </div>

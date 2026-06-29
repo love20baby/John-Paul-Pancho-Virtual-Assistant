@@ -147,3 +147,59 @@ main { width: 100%; }
   .nlinks, .ncta { display: none; }
   .brgr { display: block; }
 }
+/* ─── STATS BAR FINALIZED ─────────────────────── */
+.stats-section-divider {
+  width: 100%;
+  padding: 60px 24px;
+  background: var(--black);
+  border-top: 1px solid var(--bdr);
+  border-bottom: 1px solid var(--bdr);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.stat-number {
+  color: var(--y);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  color: #666; /* Subtle grey as seen in your image */
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+/* Vertical Divider */
+.sdv {
+  width: 1px;
+  height: 50px;
+  background: var(--bdr);
+  margin: 0 auto;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .sdv { display: none; } /* Hide separators on mobile */
+}

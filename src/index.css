@@ -201,14 +201,18 @@ color: var(--y);
   .about-h2 { font-size: 2rem; }
   .cap-grid { grid-template-columns: 1fr; }
 }
-/* ─── MARQUEE CORE STYLES ───────────── */
-.marquee-wrapper { background: #070707; padding: 40px 0; overflow: hidden; }
-
-/* Section Header with Belt Borders */
-.section-header {
-  border-top: 1px solid #1a1a1a;
+/* ─── 08. TECH STACK & FEEDBACK MARQUEE ──────────── */
+.marquee-wrapper { 
+  background: #070707; 
+  padding: 40px 0; 
+  overflow: hidden; 
+  /* This creates the unified segment effect */
+  border-top: 1px solid #1a1a1a; 
   border-bottom: 1px solid #1a1a1a;
-  padding: 25px 0;
+}
+
+/* Title styling adjusted to sit inside the bordered segment */
+.section-header {
   margin-bottom: 30px;
   text-align: center;
 }
@@ -225,20 +229,20 @@ color: var(--y);
 /* Marquee Tracks */
 .mqwrap { display: flex; width: 100%; cursor: pointer; margin-bottom: 15px; }
 
-.mqtrack-rtl, .mqtrack-ltr { 
+.mqtrack-ltr, .mqtrack-rtl { 
   display: flex; gap: 15px; 
   animation-duration: 80s; 
   animation-timing-function: linear; 
   animation-iteration-count: infinite; 
 }
 
-.mqtrack-rtl { animation-name: scrollLeft; }
 .mqtrack-ltr { animation-name: scrollRight; }
+.mqtrack-rtl { animation-name: scrollLeft; }
 
-.mqwrap:hover .mqtrack-rtl, .mqwrap:hover .mqtrack-ltr { animation-play-state: paused; }
-
-@keyframes scrollLeft { from { transform: translateX(0); } to { transform: translateX(-33.33%); } }
 @keyframes scrollRight { from { transform: translateX(-33.33%); } to { transform: translateX(0); } }
+@keyframes scrollLeft { from { transform: translateX(0); } to { transform: translateX(-33.33%); } }
+
+.mqwrap:hover .mqtrack-ltr, .mqwrap:hover .mqtrack-rtl { animation-play-state: paused; }
 
 /* Pill Styling */
 .mpill { 
@@ -252,12 +256,7 @@ color: var(--y);
 }
 
 .pill-icon { margin-right: 8px; }
-
-/* Hover Effects */
 .mpill:hover, .fpill:hover { border: 1px solid var(--y); color: var(--y); }
-
-.mt-20 { margin-top: 20px; }
-
 
 
 

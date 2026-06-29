@@ -35,16 +35,15 @@ const getIcon = (tool) => {
   };
   return icons[tool] || '🔹';
 };
-
 export default function ToolsAndFeedback() {
   return (
     <section className="marquee-wrapper">
-      {/* Title with Top/Bottom Borders */}
+      {/* Title block - no extra borders here, parent container handles it */}
       <div className="section-header">
         <h2 className="section-title">TECH STACK & OPERATIONAL PERFORMANCE</h2>
       </div>
       
-      {/* Tools Marquee (LTR) */}
+      {/* Tools Marquee */}
       <div className="mqwrap">
         <div className="mqtrack-ltr">
           {[...TOOLS, ...TOOLS, ...TOOLS].map((tool, i) => (
@@ -55,8 +54,8 @@ export default function ToolsAndFeedback() {
         </div>
       </div>
 
-      {/* Feedback Marquee (RTL) */}
-      <div className="mqwrap mt-20">
+      {/* Feedback Marquee */}
+      <div className="mqwrap">
         <div className="mqtrack-rtl">
           {[...FEEDBACK, ...FEEDBACK, ...FEEDBACK].map((f, i) => (
             <span key={i} className="fpill">{f}</span>

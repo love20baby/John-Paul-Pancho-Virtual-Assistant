@@ -1,26 +1,39 @@
-// Duplicated so the seamless loop works (animation goes from 0 to -50%)
 const TOOLS = [
-  'ClickUp', 'CRM Systems', 'Google Workspace', 'Zoom', 'Slack',
-  'Discord', 'WhatsApp', 'Telegram', 'Facebook Live', 'TikTok',
-  'Email Platforms', 'Calendar & Booking Tools', 'HIPAA-Compliant Systems',
-  'Social Media Platforms',
-]
+  'TheraOffice', 'Acuity Scheduling', 'Quo VoIP', 'Stax Payments', 'Slice Payments',
+  'Google Workspace', 'Microsoft 365', 'Zoom', 'Slack', 'Google Docs', 
+  'Google Sheets', 'Excel', 'Shopify', 'Gorgias', 'Facebook Business Suite',
+  'TikTok Seller Center', 'TikTok Live', 'Meta Business Suite', 'Salesforce', 
+  'HubSpot', 'ClickUp', 'Practice Better', 'Zendesk', 'Freshdesk', 
+  'Google Meet', 'Microsoft Teams', 'WhatsApp', 'Telegram', 'Discord', 
+  'Trello', 'Asana', 'Monday.com', 'Notion', 'Loom', 'Scribe', 
+  'Make.com', 'Zapier', 'ChatGPT', 'Claude', 'Gemini', 'Avaya', 
+  'Cisco Finesse', 'Salesforce Service Cloud', 'HIPAA-Compliance Systems'
+];
 
-export default function ToolsMarquee() {
-  const allTools = [...TOOLS, ...TOOLS] // double for seamless loop
+const FEEDBACK = [
+  "★★★★★ 'Had a great Customer Service Experience with JOHN... RESOLVED it within minutes... ON A WEEKEND!' — David Sellers",
+  "Patient Feedback: 'Incredibly professional, empathetic, and efficient with handling scheduling.' — Tim Beglin",
+  "Patient Operations: 'Getting good feedback on you from my patients who have spoken to you on the phone.' — Dr. Ryan",
+  "Patient Feedback: 'Always responsive and highly organized. Communication is clear and timely.' — Jeff Jean-Philippe",
+  "★★★★★ 'Excellent system optimization and execution.' — Uche Olomina",
+  "Patient Feedback: 'Exceptional support. Handled my inquiries with absolute care and zero stress.' — Maegan Welsh",
+  "★★★★★ 'Superb workflow architecture. Handled our high-volume support queues seamlessly.' — Robert Bailey",
+  "Patient Feedback: 'Reliable, thorough, and outstanding service. The tracking support is top-tier.' — Beth Macpherson"
+];
 
+export default function ToolsAndFeedback() {
   return (
-    <div className="tools wrap">
-      <div className="tools-in">
-        <div className="tlbl rv">Tech Stack &amp; Tools I Work With Daily</div>
-      </div>
+    <section className="marquee-section">
       <div className="mqwrap">
-        <div className="mqtrack">
-          {allTools.map((tool, i) => (
-            <span key={i} className="mpill">{tool}</span>
-          ))}
+        <div className="mqtrack-rtl">
+          {[...TOOLS, ...TOOLS].map((tool, i) => <span key={i} className="mpill">{tool}</span>)}
         </div>
       </div>
-    </div>
-  )
+      <div className="mqwrap mt-30">
+        <div className="mqtrack-ltr">
+          {[...FEEDBACK, ...FEEDBACK].map((f, i) => <span key={i} className="fpill">{f}</span>)}
+        </div>
+      </div>
+    </section>
+  );
 }

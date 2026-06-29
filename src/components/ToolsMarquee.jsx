@@ -42,6 +42,11 @@ const TOOLS = [ /* ... your array ... */ ];
 const FEEDBACK = [ /* ... your array ... */ ];
 const getIcon = (tool) => { /* ... your icon logic ... */ };
 
+import React from 'react';
+
+// Assuming your arrays are defined above this or imported
+// Keep your const TOOLS, FEEDBACK, and getIcon function as they are
+
 export default function ToolsMarquee() {
   return (
     <section className="marquee-wrapper">
@@ -67,5 +72,6 @@ export default function ToolsMarquee() {
         </div>
       </div>
     </section>
+  );
   );
 }

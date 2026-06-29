@@ -35,15 +35,20 @@ const getIcon = (tool) => {
   };
   return icons[tool] || '🔹';
 };
-export default function ToolsAndFeedback() {
+import React from 'react';
+
+// Keep your constants and getIcon function here as you have them
+const TOOLS = [ /* ... your array ... */ ];
+const FEEDBACK = [ /* ... your array ... */ ];
+const getIcon = (tool) => { /* ... your icon logic ... */ };
+
+export default function ToolsMarquee() {
   return (
     <section className="marquee-wrapper">
-      {/* Title block - no extra borders here, parent container handles it */}
       <div className="section-header">
         <h2 className="section-title">TECH STACK & OPERATIONAL PERFORMANCE</h2>
       </div>
       
-      {/* Tools Marquee */}
       <div className="mqwrap">
         <div className="mqtrack-ltr">
           {[...TOOLS, ...TOOLS, ...TOOLS].map((tool, i) => (
@@ -54,7 +59,6 @@ export default function ToolsAndFeedback() {
         </div>
       </div>
 
-      {/* Feedback Marquee */}
       <div className="mqwrap">
         <div className="mqtrack-rtl">
           {[...FEEDBACK, ...FEEDBACK, ...FEEDBACK].map((f, i) => (
